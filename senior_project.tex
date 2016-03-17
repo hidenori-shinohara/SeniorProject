@@ -1,0 +1,130 @@
+\documentclass[psamsfonts]{amsart}
+
+%-------Packages---------
+\usepackage{amssymb,amsfonts}
+\usepackage[all,arc]{xy}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+%--------Theorem Environments--------
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{quest}[thm]{Question}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{exmps}[thm]{Examples}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{rems}[thm]{Remarks}
+\newtheorem{warn}[thm]{Warning}
+\newtheorem{sch}[thm]{Scholium}
+
+\makeatletter
+\let\c@equation\c@thm
+\makeatother
+\numberwithin{equation}{section}
+
+\bibliographystyle{plain}
+
+%--------Meta Data: Fill in your info------
+\title{Introduction to Matroid and its representability}
+
+\author{Hidenori Shinohara}
+
+\date{March 10, 2016}
+
+\begin{document}
+
+
+\begin{abstract}
+This paper introduces a mathematical structure called Matroid which abstracts the concept of linear independence.
+The goal of this paper is to discuss the representability of matroid, which will be defined later in this paper, and introduce some examples, sketches of proofs about some of the important theorems and conjectures about representability and others.
+
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction to Matroid}
+
+*Introduction the similarity of linearly independence and cycles*
+
+
+\begin{defn}
+A definition of matroid
+\end{defn}
+
+
+\section{Some basic definitions/results}
+
+This chapter will introduce some of the basic results, definition which will be necessary to start discussing the representability.
+
+\begin{thm}
+All maximal independent sets have the same size.
+\end{thm}
+
+\section{Introduction to representability}
+
+This chapter will introduce definitions and results that are necessary to discuss the representability.
+
+More specifically, this chapter will introduce:
+\begin{itemize}
+\item Why we care about representability
+  \begin{itemize}
+  \item If all matroids are representable, we are just giving a vector space another name.
+  \item Therefore, it is important that not all matroids are representable.
+  \item Show some examples of unrepresentable matroids
+  \item Now that we know the existence, the question is, which one?
+  \end{itemize}
+\item The mathematical definition of "representability"
+\end{itemize}
+
+
+\begin{defn}
+deletion
+\end{defn}
+
+\begin{thm}
+Deletion indeed generates a matroid
+\end{thm}
+
+\begin{defn}
+contraction
+\end{defn}
+
+\begin{thm}
+Contraction indeed generates a matroid
+\end{thm}
+
+\subsection{What do contraction and deletion mean in graphs and vector spaces?}
+
+\subsection{Why do these matter?}
+Because if a matroid is representable over some field $$\mathbb{F}$$, its minor is always representable over $$\mathbb{F}$$.
+
+\subsection{The introduction of Rota's conjecture}
+
+\section{More discussion on matroid representability}
+I am planning to write several chapters about matroid representability.
+Some ideas I have at this point include:
+
+\begin{itemize}
+\item (Sketch of) proofs of some small cases of Rota's conjecture
+\item List of interesting matroids that are not representable
+\end{itemize}
+
+\end{document}
+
