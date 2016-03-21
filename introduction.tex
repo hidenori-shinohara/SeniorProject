@@ -1,0 +1,14 @@
+\section{Introduction to Matroid}
+*Introduction the similarity of linearly independence and cycles*
+
+
+\begin{defn}
+A matroid $M = (E, \mathcal{I})$ is a pair such that $E$ is a finite set of elements, and $\mathcal{I}$ is a family of subsets of $E$ with the following properties:
+\begin{itemize}
+\item $\emptyset \in \mathcal{I}$
+\item For any $A\in \mathcal{I}$, any subset of $A$ is in $\mathcal{I}$.
+\item For any $A, B \in \mathcal{I}$ such that $\lvert A \rvert < \lvert B \rvert$, there always exists $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}$.
+\end{itemize}
+$E$ is called the ground set, $\mathcal{I}$ is called the independent sets. A subset of $E$ is called independent if and only if it is in $\mathcal{I}$.
+\end{defn}
+

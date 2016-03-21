@@ -1,0 +1,102 @@
+\section{Introduction to representability}
+
+This chapter will introduce definitions and results that are necessary to discuss the representability.
+
+More specifically, this chapter will introduce:
+\begin{itemize}
+\item Why we care about representability
+  \begin{itemize}
+  \item If all matroids are representable, we are just giving a vector space another name.
+  \item Therefore, it is important that not all matroids are representable.
+  \item Show some examples of unrepresentable matroids
+  \item Now that we know the existence, the question is, which one?
+  \end{itemize}
+\item The mathematical definition of "representability"
+\end{itemize}
+
+
+\begin{defn}
+Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
+$M \backslash X$ denotes a deletion of $X$ in $M$ and is defined to be $(E - X, \{ I \in \mathcal{I} \mid X \cap I = \emptyset \})$
+\end{defn}
+
+Note that $M \backslash e$ for some element $e \in E$ is equivalent to $M \backslash \{ e \}$.
+
+\begin{thm}
+Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
+$M \backslash X$ is indeed a matroid
+\end{thm}
+
+\begin{proof}
+Let $M' = (E', \mathcal{I}') = M \backslash X$.
+Since $\emptyset \in \mathcal{I}$ and $X \cap \emptyset = \emptyset$, $\emptyset \in \mathcal{I}$.
+Let $I \in \mathcal{I}', J \subseteq I$. 
+Since $I \in \mathcal{I}$, $J \in \mathcal{I}$.
+Since $J \subseteq I$ and $I \cap X = \emptyset$, $J \cap X = \emptyset$.
+Therefore, $J \in \mathcal{I}'$.
+Let $A, B \in \mathcal{I}'$ such that $\lvert A \rvert < \lvert B \rvert$.
+Since $A, B \in \mathcal{I}'$, we know that $A, B \in \mathcal{I}$.
+Therefore, we can find $x \in B - A$ such that $(A \cup \{ x \}) \in \mathcal{I}$.
+Since $(A \cup \{ x \}) \subseteq (A \cup B)$ and $X \cap A = X \cap B = \emptyset$, $X \cap (A \cup \{ x \}) = \emptyset$.
+Therefore, $A \cup \{ x \} \in \mathcal{I}'$.
+Thus we have found such $x \in B - A$ that $A \cup \{ x \} \in \mathcal{I}'$.
+Since $M' = M \backslash X$ follows the three properties, it is indeed a matroid. 
+\end{proof}
+
+\begin{defn}
+Let $M = (E, \mathcal{I})$, $e \in E$ be given.
+$M / e$ denotes contraction of $M$ by $e$ and 
+$M / e = \begin{cases}
+      M \backslash e, \text{if $e$ is a loop},\\
+      (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (I \cup \{ e \}) \in \mathcal{I}\}), \text{ otherwise}.
+         \end{cases}$
+\end{defn}
+\begin{thm}
+Contraction by an element indeed generates a matroid.
+\end{thm}
+\begin{proof}
+If $e$ is a loop, $M / e$ is obviously a matrod since we know that deletion always generates a matroid.
+Suppose otherwise.
+Let $\mathcal{I}'$ denote the independent sets of $M / e$.
+First, $\emptyset \in \mathcal{I}, e \notin \emptyset$. Since $e$ is not a loop, $(\emptyset \cup \{ e \}) \in \mathcal{I}$.
+Therefore, $\emptyset \in \mathcal{I}'$.
+Let $I \in \mathcal{I}', J \subseteq I$.
+Since $I \in \mathcal{I}$, $J \in \mathcal{I}$.
+Since $e \notin I$, $e \notin J$.
+Since $(I \cup \{ e \}) \in \mathcal{I}$ and $J \subseteq I$, $(J \cup \{ e \}) \in \mathcal{I}$.
+Therefore, $J \in \mathcal{I}'$.
+Let $A, B \in \mathcal{I}'$ such that $\lvert A \rvert < \lvert B \rvert$.
+Since $A, B \in \mathcal{I}'$, $A, B \in \mathcal{I}$.
+Let $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{i}$.
+Since $e \notin A, e \notin B$, $e \notin (A \cup \{ x \})$.
+Since 
+
+\end{proof}
+
+
+Now that we have defined contraction of a matroid by an element, we can define contraction by a subset of a ground set.
+\begin{defn}
+Let $M = (E, \mathcal{I}), X = \{ x_1, \cdots, x_k \} \subseteq E$.
+$M / X$ is defined to be $(((M/x_1)/x_2) \cdots)/x_k)$.
+\end{defn}
+
+It is not obvious that this is well-defined. 
+In other words, it is not obvious that the order of contraction does not matter.
+The following theorem shows that the order does not matter.
+
+\begin{thm}
+For any given matroid $M = (E, \mathcal{I})$,
+$(M / e_1) / e_2 = (M / e_2) / e_1$ for any $e_1 \neq e_2 \in E$.
+\end{thm}
+
+\begin{proof}
+Prove it!
+\end{proof}
+
+\subsection{What do contraction and deletion mean in graphs and vector spaces?}
+
+\subsection{Why do these matter?}
+Because if a matroid is representable over some field $$\mathbb{F}$$, its minor is always representable over $$\mathbb{F}$$.
+
+\subsection{The introduction of Rota's conjecture}
+

@@ -5,6 +5,7 @@
 \usepackage[all,arc]{xy}
 \usepackage{enumerate}
 \usepackage{mathrsfs}
+\usepackage{theoremref}
 
 %--------Theorem Environments--------
 %theoremstyle{plain} --- default
@@ -59,101 +60,21 @@ The goal of this paper is to discuss the representability of matroid, which will
 
 \tableofcontents
 
-\section{Introduction to Matroid}
+% Chapter 1
+% Introduction to Matroid
+\input{introduction.tex}
 
-*Introduction the similarity of linearly independence and cycles*
+% Chapter 2
+% Basic results and such
+\input{basic_results.tex}
 
+% Chapter 3
+% Intro to representability
+\input{intro_to_representability.tex}
 
-\begin{defn}
-A matroid $M = (E, \mathcal{I})$ is a pair such that $E$ is a finite set of elements, and $\mathcal{I}$ is a family of subsets of $E$ with the following properties:
-\begin{itemize}
-\item $\emptyset \in \mathcal{I}$
-\item For any $A\in \mathcal{I}$, any subset of $A$ is in $\mathcal{I}$.
-\item For any $A, B \in \mathcal{I}$ such that $\lvert A \rvert < \lvert B \rvert$, there always exists $x \in A - B$ such that $A \cup \{ x \} \in \mathcal{I}$.
-\end{itemize}
-$E$ is called the ground set, $\mathcal{I}$ is called the independent sets. A subset of $E$ is called independent if and only if it is in $\mathcal{I}$.
-\end{defn}
-
-
-\section{Some basic definitions/results}
-
-This chapter will introduce some of the basic results, definition which will be necessary to start discussing the representability.
-
-\begin{thm}
-All maximal independent sets have the same size.
-\end{thm}
-
-\section{Introduction to representability}
-
-This chapter will introduce definitions and results that are necessary to discuss the representability.
-
-More specifically, this chapter will introduce:
-\begin{itemize}
-\item Why we care about representability
-  \begin{itemize}
-  \item If all matroids are representable, we are just giving a vector space another name.
-  \item Therefore, it is important that not all matroids are representable.
-  \item Show some examples of unrepresentable matroids
-  \item Now that we know the existence, the question is, which one?
-  \end{itemize}
-\item The mathematical definition of "representability"
-\end{itemize}
-
-
-\begin{defn}
-Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
-$M \backslash X$ denotes a deletion of $X$ in $M$ and is defined to be $(E - X, \{ I \in \mathcal{I} \mid X \cap I = \emptyset \})$
-\end{defn}
-
-Note that $M \backslash e$ for some element $e \in E$ is equivalent to $M \backslash \{ e \}$.
-
-\begin{thm}
-Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
-$M \backslash X$ is indeed a matroid
-\end{thm}
-
-\begin{proof}
-Prove it!
-\end{proof}
-
-\begin{defn}
-Let $M = (E, \mathcal{I})$, $e \in E$ be given.
-$M / e$ denotes contraction of $M$ by $e$ and 
-$M / e = \begin{cases}
-      M \backslash e, \text{if $e$ is a loop}\\
-      (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (I \cup \{ e \}) \in \mathcal{I}\}), \text{ otherwise}.
-         \end{cases}$
-Let $X = \{ x_1, \cdots, x_k \}, \subseteq E$.
-$M / X$ is defined to be $(((M/x_1)/x_2) \cdots)/x_k)$.
-\end{defn}
-
-\begin{thm}
-Contraction makes sense.
-\end{thm}
-
-\begin{thm}
-Contraction indeed generates a matroid
-\end{thm}
-
-\begin{proof}
-Prove it!
-\end{proof}
-
-\subsection{What do contraction and deletion mean in graphs and vector spaces?}
-
-\subsection{Why do these matter?}
-Because if a matroid is representable over some field $$\mathbb{F}$$, its minor is always representable over $$\mathbb{F}$$.
-
-\subsection{The introduction of Rota's conjecture}
-
-\section{More discussion on matroid representability}
-I am planning to write several chapters about matroid representability.
-Some ideas I have at this point include:
-
-\begin{itemize}
-\item (Sketch of) proofs of some small cases of Rota's conjecture
-\item List of interesting matroids that are not representable
-\end{itemize}
+% Chapter 4
+% more discussion on representability
+\input{representability.tex}
 
 \end{document}
 
