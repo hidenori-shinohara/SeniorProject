@@ -172,8 +172,27 @@ Hence, $S \subseteq \mathcal{I}''$.
 Combining these two results, we know that $S = \mathcal{I}''$.
 By the symmetry, $(M / e) / f$ and $(M / f) / e$ have the same independent sets.
 Therefore $(M / e) / f = (M / f) / e$.
+
+\item Neither of $e, f$ is a loop, but $\{ e, f \} \notin \mathcal{I}$.\\
+The independent set of $M / e$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid e \notin I, (I \cup \{ e \}) \in \mathcal{I} \}$.
+Since $\{ e, f \} \notin \mathcal{I}$, $f$ is a loop in $M / e$.
+Therefore, $(M / e) / f = (M / e) \backslash f$.
+Since the deletion of a loop does not change the independent sets, the independent sets of $(M / e) / f$ is $\mathcal{I}'$.
+By applying the same argument, the independent set of $(M / f) / e$ is $\mathcal{I}'' = \{ I \in \mathcal{I} \mid f \notin I, (I \cup \{ f \} ) \in \mathcal{I} \}$.
+We want to show that $\mathcal{I}'  = \mathcal{I}''$.
+By the symmetry, it suffices to show that $\mathcal{I}' \subseteq \mathcal{I}''$.
+Let $I \in \mathcal{I}'$.
+Since $\{ e, f \}$ is dependent, $f \notin I$. (Otherwise, $I \cup \{ e \}$ would be dependent.)
+Since both $(I \cup \{ e \})$ and $\{ f \}$ are independent, we can grow $\{ f \}$ by adding elements from $(I \cup \{ e \})$ until they have the same size.
+Since $\{ e, f\}$ is dependent, we never add $e$.
+In other words, we add every element from $\mathcal{I}$.
+It means that $I \cup \{ f \}$ is independent.
+Therefore, $I \in \mathcal{I}''$, and thus $\mathcal{I}' \subseteq \mathcal{I}''$.
+By symmetry, $\mathcal{I}'' \subseteq \mathcal{I}'$.
+Therefore, $\mathcal{I}' = \mathcal{I}''$.
 \end{enumerate}
 
+Therefore, in any case, $(M / e) / f = (M / f) / e$.
 \end{proof}
 
 
@@ -181,7 +200,7 @@ Therefore $(M / e) / f = (M / f) / e$.
 \subsection{What do contraction and deletion mean in graphs and vector spaces?}
 
 \subsection{Why do these matter?}
-Because if a matroid is representable over some field $$\mathbb{F}$$, its minor is always representable over $$\mathbb{F}$$.
+Because if a matroid is representable over some field $\mathbb{F}$, its minor is always representable over $\mathbb{F}$.
 
 \subsection{The introduction of Rota's conjecture}
 
