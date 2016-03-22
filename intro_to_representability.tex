@@ -65,17 +65,18 @@ Since $I \in \mathcal{I}$, $J \in \mathcal{I}$.
 Since $e \notin I$, $e \notin J$.
 Since $(I \cup \{ e \}) \in \mathcal{I}$ and $J \subseteq I$, $(J \cup \{ e \}) \in \mathcal{I}$.
 Therefore, $J \in \mathcal{I}'$.
-** Read this part more carefully.**
 Let $A, B \in \mathcal{I}'$ such that $\lvert A \rvert < \lvert B \rvert$.
 Let $A' = A \cup \{ e \}, B' = B \cup \{ e \}$.
 Since $A, B \in \mathcal{I}'$, $A', B' \in \mathcal{I}$.
 Since $e \notin A, e \notin B$, $\lvert A' \rvert < \lvert B' \rvert$.
 Let $x \in B' - A'$ such that $A' \cup \{ x \} \in \mathcal{I}$.
+Since $B' - A' = B - A$, $x \in B - A$.
 For such $x$, we just showed that $A \cup \{ e \} \cup \{ x \} \in \mathcal{I}$.
 Also, $x \neq e$ since $e \in A'$.
 Therefore, $A \cup \{ x \} \in \mathcal{I}'$. 
 Hence, we have found $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}'$.
 Since this follows three properties given in the definition, this is indeed a matroid.
+Therefore, contraction by an element indeed generates a matroid.
 \end{proof}
 
 
