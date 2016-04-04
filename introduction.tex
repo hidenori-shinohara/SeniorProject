@@ -1,6 +1,12 @@
 \section{Introduction to Matroid}
 
-*Introduction the similarity of linearly independence and cycles*
+A matroid is a mathematical structure that abstracts the concept of linearly independence.
+Linearly independent sets of vectors have a lot of good properties.
+Interestingly, a lot of sets of other mathematical objects often share those properties.
+For example, any subset of a linearly independent set of vectors is always linearly independent.
+Consider a subset of edges of a graph that does not contain any cycle.
+Then any subset of it does not contain any cycle.
+The matroid theory is an attempt to mathematically formalize those properties and investigate in them.
 
 \begin{defn}
 A matroid $M = (E, \mathcal{I})$ is a pair such that $E$ is a finite set of elements, and $\mathcal{I}$ is a family of subsets of $E$ with the following properties:
@@ -11,4 +17,28 @@ A matroid $M = (E, \mathcal{I})$ is a pair such that $E$ is a finite set of elem
 \end{itemize}
 $E$ is called the ground set, $\mathcal{I}$ is called the independent sets. A subset of $E$ is called independent if and only if it is in $\mathcal{I}$.
 \end{defn}
+
+In this paper, we will put our focus on a matroid with a finite ground set.
+
+There are some basic matroids that are important in the following discussions.
+
+We will start by introducing a column matroid. 
+A column matroid is constructed from a matrix over a field $\mathbb{F}$.
+
+\begin{defn}
+Let a matrix $A$ with $m$ rows over $\mathbb{F}$ be given.
+A column matroid $M$ of $A$ is a matroid with a ground set $\{ 1, 2, \cdots m \}$.
+A subset of $E$ is independent in $M$ if and only if the set of column vectors corresponding to it is linearly independent.
+\end{defn}
+
+\begin{proof}
+Prove it!
+\end{proof}
+
+
+\begin{defn}
+A uniform matroid $U_{r, k}$ is a matroid such that $E = \{ 1, \cdots, k \}$ and $\mathcal{I} = \{ X \mid  X \subseteq E, \lvert X \rvert \leq r \}$.
+\end{defn}
+
+It is easy to see that a uniform matroid is indeed a matroid.
 
