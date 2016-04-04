@@ -1,7 +1,7 @@
 \section{Introduction to Matroid}
 
 A matroid is a mathematical structure that abstracts the concept of linearly independence.
-Linearly independent sets of vectors have a lot of good properties.
+A linearly independent set of vectors has a lot of good properties.
 Interestingly, a lot of sets of other mathematical objects often share those properties.
 For example, any subset of a linearly independent set of vectors is always linearly independent.
 Consider a subset of edges of a graph that does not contain any cycle.
@@ -15,13 +15,12 @@ A matroid $M = (E, \mathcal{I})$ is a pair such that $E$ is a finite set of elem
 \item For any $A\in \mathcal{I}$, any subset of $A$ is in $\mathcal{I}$.
 \item For any $A, B \in \mathcal{I}$ such that $\lvert A \rvert < \lvert B \rvert$, there always exists $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}$.
 \end{itemize}
-$E$ is called the ground set, $\mathcal{I}$ is called the independent sets. A subset of $E$ is called independent if and only if it is in $\mathcal{I}$.
 \end{defn}
+$E$ is called the ground set, $\mathcal{I}$ is called the independent sets. A subset of $E$ is called independent if and only if it is in $\mathcal{I}$.
+In this paper, we will put our focus on a matroid with a finite ground set. 
 
-In this paper, we will put our focus on a matroid with a finite ground set.
 
 There are some basic matroids that are important in the following discussions.
-
 We will start by introducing a column matroid. 
 A column matroid is constructed from a matrix over a field $\mathbb{F}$.
 
@@ -30,6 +29,10 @@ Let a matrix $A$ with $m$ rows over $\mathbb{F}$ be given.
 A column matroid $M$ of $A$ is a matroid with a ground set $\{ 1, 2, \cdots m \}$.
 A subset of $E$ is independent in $M$ if and only if the set of column vectors corresponding to it is linearly independent.
 \end{defn}
+
+\begin{thm}
+A column matroid is indeed a matroid.
+\end{thm}
 
 \begin{proof}
 Prove it!
@@ -42,3 +45,25 @@ A uniform matroid $U_{r, k}$ is a matroid such that $E = \{ 1, \cdots, k \}$ and
 
 It is easy to see that a uniform matroid is indeed a matroid.
 
+Here are some important results that will show up later in this paper.
+
+\begin{thm}
+All maximal independent sets have the same size.
+\end{thm}
+
+\begin{proof}
+Let $X, Y$ be maximal independent sets of some matroid.
+Suppose $\lvert X \rvert \neq \lvert Y \rvert$.
+Without loss of generality, $\lvert X \rvert < \lvert Y \rvert$.
+By the third property of a matroid, there exists $e \in Y - X$ such that $X \cup \{ e \}$ is independent.
+It is a contradiction since $X$ is a maximal independent set.
+Therefore $\lvert X \rvert = \lvert Y \rvert$.
+\end{proof}
+
+\begin{defn}
+The rank of a matroid is the size of a maximal independent set.
+\end{defn}
+
+\begin{defn}
+The rank of a column matroid is equal to the rank of the matrix.
+\end{defn}
