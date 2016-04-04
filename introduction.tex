@@ -45,6 +45,8 @@ A uniform matroid $U_{r, k}$ is a matroid such that $E = \{ 1, \cdots, k \}$ and
 
 It is easy to see that a uniform matroid is indeed a matroid.
 
+% If I need more pages, just introduce a graph matroid
+
 Here are some important results that will show up later in this paper.
 
 \begin{thm}
@@ -60,6 +62,9 @@ It is a contradiction since $X$ is a maximal independent set.
 Therefore $\lvert X \rvert = \lvert Y \rvert$.
 \end{proof}
 
+This is indeed true in linear algebra.
+Given a matroid, any maximal independent subset of column vectors always has the same size.
+
 \begin{defn}
 The rank of a matroid is the size of a maximal independent set.
 \end{defn}
@@ -67,3 +72,11 @@ The rank of a matroid is the size of a maximal independent set.
 \begin{defn}
 The rank of a column matroid is equal to the rank of the matrix.
 \end{defn}
+
+\begin{defn}
+Let $M_1 = (E_1, \mathcal{I}_1), M_2 = (E_2, \mathcal{I}_2)$ be given.
+$M_1, M_2$ are isomorphic to each other if there exists a bijective mapping $\phi: E_1 \rightarrow E_2$ such that
+$\forall X \subseteq E_1, X \in \mathcal{I}_1 \iff \{ \phi(e) : e \in X \} \in \mathcal{I}_2$.
+\end{defn}
+
+Two isomorphic matroids have the same structure.
