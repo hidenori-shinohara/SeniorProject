@@ -80,26 +80,105 @@ Fano matroid can be constructed from Fano plane.
 Fano matroid is one of the examples of matroids that are representable over $GF(2)$, but not over $\mathbb{R}$.
 We will start by defining Fano matroid mathematically.
 
+\begin{figure}
+  \centering
+    \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{Fano_plane.png}
+    \caption{Fano plane}
+  \label{fig:test}
+\end{figure}
+
 \begin{defn}
-Fano matroid.  A set of vertices is independent if it has at most three points and is not a line.
+Fano matroid is a matroid with a ground set $\{ 1, 2, \cdots, 7 \}$. 
+A set of vertexes is independent if it satisfies one of the followings:
+\begin{enumerate}
+\item it contains less than or equal to 2 elements,
+\item it contains exactly 3 points and they are not on the same line.
+\end{enumerate}
+Any set of vertexes that have more than 3 elements is dependent.
 \end{defn}
 
+For example, $\{4, 5\}$ and $\{ 1, 2, 3 \}$ are independent, but $\{ 1, 4, 2 \}$, $\{1, 5, 7\}$, and $\{4, 5, 6 \}$ are not independent as each of them is on one line.
+
 \begin{thm}
-Fano matroid is indeed a matroid
+Fano matroid is indeed a matroid.
 \end{thm}
 
 \begin{proof}
-Prove it!
+An empty set is independent since it contains less than 2 elements.
+Any independent set has at most three elements, so any proper subset of it has at most two elements.
+Therefore, any subset of independent set is always independent.
+The third property can be proved by checking each case.
+Since any set with 2 or less elements is independent, we only need to care about the case when we have a set with 2 elements and a set of three elements.
+Let $A = \{ a_1, a_2, a_3 \}$, $B = \{ b_1, b_2\}$ be independent sets.
+It is easy to see from the figure that there must be exactly one line that goes through both $b_1$ and $b_2$.
+Let $x$ denote the third point on such line.
+Then, adding any element other than $b_1, b_2, x$ to $B$ will generate an independent set of three elements.
+Therefore, we just need to make sure that $A \neq \{ b_1, b_2, x \}$.
+That cannot be the case since $\{ b_1, b_2, x \}$ is dependent and $A$ is independent.
+Therefore, there must be an element $a \in A - B$ such that $B \cup \{ a \}$ is independent.
+Since Fano matroid satisfies all three properties, it is indeed a matroid.
 \end{proof}
 
 
 Here is an interesting property of Fano matroid
 \begin{thm}
-If Fano matroid is representable over a field $F$, $1 + 1 = 0$ in that field.
+If Fano matroid is representable over a field $\mathbb{F}$, $1 + 1 = 0$ in that field.
 \end{thm}
 
 \begin{proof}
-meh
+Suppose Fano matroid is representable over a given field $\mathbb{F}$.
+Let $A \in \mathbb{F}^{3 \times 7}$ such that $A$'s column matroid is isomorphic to Fano matroid.
+Let $R$ be a row reduced echelon form of $A$.
+Then the first three columns should be identical to $I_3$ since $R$ has a rank of 3.
+Since $\{1, 2, 4\}$ is dependent, $R_{3, 4}$ is 0.
+Applying the same argument to $\{2, 3, 5\}, \{1, 3, 6\}$, we get the following:
+$\begin{pmatrix}
+1 & 0 & 0 & ? & 0 & ? & ? \\
+0 & 1 & 0 & ? & ? & 0 & ? \\
+0 & 0 & 1 & 0 & ? & ? & ? \\
+\end{pmatrix}$
+Since multiplying a non-zero constant to some column does not affect on the linearly independency, assume that the first non-zero elements of 4, 5, 6th columns are all 1.
+$\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 & ? \\
+0 & 1 & 0 & ? & 1 & 0 & ? \\
+0 & 0 & 1 & 0 & ? & ? & ? \\
+\end{pmatrix}$
+
+Let $a = R_{2, 4}, b = R_{3, 5}$.
+$\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 & ? \\
+0 & 1 & 0 & a & 1 & 0 & ? \\
+0 & 0 & 1 & 0 & b & ? & ? \\
+\end{pmatrix}$
+Since $\{4, 5, 6\}$ is dependent, $R_{3, 6}$ must be $-ab$.
+$\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 & ? \\
+0 & 1 & 0 & a & 1 & 0 & ? \\
+0 & 0 & 1 & 0 & b & -ab & ? \\
+\end{pmatrix}$
+We need to look into the seventh column.
+The seventh column actually cannot contain any zero.
+For example, suppose $R_{1, 7} = 0$.
+Then, $\{2, 3, 7 \}$ would be dependent.
+That's a contradiction.
+Similar arguments apply to the case of $R_{2, 7} = 0, R_{3, 7} = 0$.
+By multiplying a non-zero constant, we get:
+$\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 & 1 \\
+0 & 1 & 0 & a & 1 & 0 & ? \\
+0 & 0 & 1 & 0 & b & -ab & ? \\
+\end{pmatrix}$
+Since $\{3, 4, 7\}$ is dependent, $R_{2, 7} = a$.
+And since $\{1, 5, 7\}$ is dependent, $R_{3, 7} = b * R_{2, 7} = ab$.
+$\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 & 1 \\
+0 & 1 & 0 & a & 1 & 0 & a \\
+0 & 0 & 1 & 0 & b & -ab & ab \\
+\end{pmatrix}$
+$\{ 2, 6, 7 \}$ is dependent as well.
+By observing those three columns, it is easy to see that $-(-ab) + ab$ must be 0.
+Since neither of $a, b$ is 0, $ab(1 + 1) = 0$ implies $1 + 1 = 0$.
+(If $a$ is 0, 1st column and 4th column would be identical. The similar argument applies to $b$.)
 \end{proof}
 
 This theorem is powerful, since this implies that Fano matroid is not representable over $\mathbb{R}$.
