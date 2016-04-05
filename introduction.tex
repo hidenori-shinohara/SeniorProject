@@ -27,7 +27,7 @@ A column matroid is constructed from a matrix over a field $\mathbb{F}$.
 \begin{defn}
 Let a matrix $A$ with $m$ rows over $\mathbb{F}$ be given.
 A column matroid $M$ of $A$ is a matroid with a ground set $\{ 1, 2, \cdots m \}$.
-A subset of $E$ is independent in $M$ if and only if the set of column vectors corresponding to it is linearly independent.
+A subset of $E$ is independent in $M$ if and only if the set of the corresponding column vectors is linearly independent.
 \end{defn}
 
 \begin{thm}
@@ -35,7 +35,21 @@ A column matroid is indeed a matroid.
 \end{thm}
 
 \begin{proof}
-Prove it!
+First, an empty set of vectors is linearly independent by definition.
+Suppose there exists a linearly independent set of vectors that has a linearly dependent subset.
+Let $A = \{a_1, \cdots, a_k\} \subseteq B = \{b_1, \cdots, b_n\}$ be such sets.
+Since $A$ is linearly dependent, there exist constants $c_1, \cdots, c_k$ such that $c_1 a_1 + \cdots + c_k a_k = 0$ and not all $c_i$'s are $0$.
+However, that implies that we can find constants $d_1, \cdots, d_n$ such that $d_1 b_1 + \cdots + d_k b_k = 0$ and not all $d_i$'s are $0$.
+This is a contradiction since $B$ is supposed to be independent.
+Therefore, such subset must not exist, and thus all subsets of linearly independent sets are linearly independent.
+Now we want to prove the third property.
+Let $A = \{a_1, \cdots, a_k\}, B = \{b_1, \cdots, b_n\}$ be linearly independent sets, and assume that $k < n$.
+Suppose for each $i = 1, \cdots, n$, $b_i \in span\{ a_1, \cdots, a_k \}$.
+It means that the span of $B$ is a subspace of the span of $A$, which has smaller dimension than $n$.
+That is a contradiction.
+Therefore, there exists $i$ such that $b_i \notin span \{ a_1, \cdots, a_k \}$.
+For such $i$, $\{ a_1, \cdots, a_k, b_i \}$ should be linearly independent.
+Since a column matroid satisfies the three properties, it is indeed a matroid.
 \end{proof}
 
 
@@ -63,16 +77,22 @@ Therefore $\lvert X \rvert = \lvert Y \rvert$.
 \end{proof}
 
 This is indeed true in linear algebra.
-Given a matroid, any maximal independent subset of column vectors always has the same size.
+Given a matrix, any maximal independent subset of column vectors always has the same size. In linear algebra, this number is often referred to as the \textit{dimension} of a vector space, or the \textit{rank} of a matrix.
+In the matroid theory, we use the term \textit{rank} as well.
+
 
 \begin{defn}
 The rank of a matroid is the size of a maximal independent set.
 \end{defn}
 
+The rank of a column matroid is equal to the rank of the matrix since the subset of a ground set is independent if and only if the subset of column vectors is linearly independent.
+
 \begin{defn}
-The rank of a column matroid is equal to the rank of the matrix.
+Let $M = (E, \mathcal{I})$ be given.
+$e \in E$ is called a loop if $\{ e \} \notin \mathcal{I}$.
 \end{defn}
 
+We will conclude this chapter by introducing the notion of isomorphic matroids.
 \begin{defn}
 Let $M_1 = (E_1, \mathcal{I}_1), M_2 = (E_2, \mathcal{I}_2)$ be given.
 $M_1, M_2$ are isomorphic to each other if there exists a bijective mapping $\phi: E_1 \rightarrow E_2$ such that

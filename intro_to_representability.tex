@@ -25,8 +25,28 @@ Therefore, if the matroid indeed succeeded in abstracting the concept of linearl
 there should be some matroids that are \textit{not} representable over some fields.
 If all matroids are representable over every field, it means that we are simply discussing linear algebra using different terms.
 
-Here are some matroids that are not representable over some fields to show that not all matroids are representable over every field.
+Before introducing some unrepresentable matroids, we will start by introducing a nice property of representable matroids.
 
+\begin{thm}
+Let $M = (E, \mathcal{I})$ be a matroid that is representable over $\mathbb{F}$.
+Let $r$ be a rank of $M$ and $k = \lvert E \rvert$.
+Then there exists a matrix $A \in \mathbb{F}^{r \times k}$ such that $M$ is isomorphic to the column matroid of $A$.
+\end{thm}
+
+\begin{proof}
+Let $B$ a matrix over $\mathbb{F}$ such that the column matroid of $B$ is isomorphic to $M$.
+It is easy to see that the number of columns of $B$ is $k$.
+From linear algebra, we know that elementary row operations preserve the linearly independency of column vectors.
+Let $R$ be the reduced row echelon form of $B$.
+Since $R$ must have a rank of $r$, it only has $r$ leading zeros.
+In other words, $R$ has exactly $r$ non-zero row vectors.
+Removing zero rows clearly does not affect the linearly independency.
+Therefore, we found a matrix in $\mathbb{F}^{r \times k}$ whose column matroid is isomorphic to $M$.
+\end{proof}
+
+This property is useful when proving that a matroid is unrepresentable over some field.
+
+Here are some matroids that are not representable over some fields to show that not all matroids are representable over every field.
 
 \begin{thm}
 $U_{2, 4}$ is not representable over $GF(2)$.
@@ -35,8 +55,24 @@ $U_{2, 4}$ is not representable over $GF(2)$.
 A matroid is called a \textit{binary matroid} if it is representable over $GF(2)$.
 
 \begin{proof}
-prove it
+We know that $U_{2, 4}$ has a rank of $2$.
+If $U_{2, 4}$ is representable over $GF(2)$, there exists a matrix $A \in GF(2)^{2 \times 4}$ such that $A$'s column matroid is isomorphic to $U_{2, 4}$.
+Since $GF(2)$ only has two elements, there are only four possible column vectors of size 2.
+$\bigg\{\begin{pmatrix}0\\0\end{pmatrix},
+\begin{pmatrix}0\\1\end{pmatrix},
+\begin{pmatrix}1\\0\end{pmatrix},
+\begin{pmatrix}1\\1\end{pmatrix}\bigg\}$
+$A$ must not contain $\begin{pmatrix}0\\0\end{pmatrix}$ since it is a loop. 
+Since $A$ has 4 columns and there are only 3 different column vectors, we know that there are two columns in $A$ that have the exact same column vectors.
+This is also a contradiction since a subset of such two elements will not be independent.
+Therefore, $U_{2, 4}$ is not representable over $GF(2)$.
 \end{proof}
+
+$U_{2, 4}$ is representable over some field such as $\mathbb{R}$.
+For example, the column matroid of $\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+1 & 2 & 3 & 4 
+\end{pmatrix}$ is isomorphic to $U_{2, 4}$.
 
 
 Now, we will introduce Fano matroid.
