@@ -1,6 +1,6 @@
 \section{Introduction to Matroid}
 
-A matroid is a mathematical structure that abstracts the concept of linearly independence.
+A matroid is a mathematical structure that abstracts the concept of linear independence.
 A linearly independent set of vectors has a lot of good properties.
 Interestingly, a lot of sets of other mathematical objects often share those properties.
 For example, any subset of a linearly independent set of vectors is always linearly independent.
@@ -45,7 +45,7 @@ Therefore, such subset must not exist, and thus all subsets of linearly independ
 Now we want to prove the third property.
 Let $A = \{a_1, \cdots, a_k\}, B = \{b_1, \cdots, b_n\}$ be linearly independent sets, and assume that $k < n$.
 Suppose for each $i = 1, \cdots, n$, $b_i \in span\{ a_1, \cdots, a_k \}$.
-It means that the span of $B$ is a subspace of the span of $A$, which has smaller dimension than $n$.
+It means that the span of $B$ is a subspace of the span of $A$, which has a smaller dimension than $n$.
 That is a contradiction.
 Therefore, there exists $i$ such that $b_i \notin span \{ a_1, \cdots, a_k \}$.
 For such $i$, $\{ a_1, \cdots, a_k, b_i \}$ should be linearly independent.
@@ -77,7 +77,7 @@ Therefore $\lvert X \rvert = \lvert Y \rvert$.
 \end{proof}
 
 This is indeed true in linear algebra.
-Given a matrix, any maximal independent subset of column vectors always has the same size. In linear algebra, this number is often referred to as the \textit{dimension} of a vector space, or the \textit{rank} of a matrix.
+Given a matrix, any maximal independent subset of column vectors always has the same size. In linear algebra, this number is often referred to as the \textit{dimension} of a vector space or the \textit{rank} of a matrix.
 In the matroid theory, we use the term \textit{rank} as well.
 
 

@@ -21,7 +21,7 @@ A matroid $M = (E, \mathcal{I})$ is representable over a field $\mathbb{F}$ if
 there exists a matrix $A$ over $\mathbb{F}$ such that the column matroid of $A$ is isomorphic to $M$.
 \end{defn}
 
-Therefore, if the matroid indeed succeeded in abstracting the concept of linearly independence, 
+Therefore, if the matroid indeed succeeded in abstracting the concept of linear independence, 
 there should be some matroids that are \textit{not} representable over some fields.
 If all matroids are representable over every field, it means that we are simply discussing linear algebra using different terms.
 
@@ -36,11 +36,11 @@ Then there exists a matrix $A \in \mathbb{F}^{r \times k}$ such that $M$ is isom
 \begin{proof}
 Let $B$ a matrix over $\mathbb{F}$ such that the column matroid of $B$ is isomorphic to $M$.
 It is easy to see that the number of columns of $B$ is $k$.
-From linear algebra, we know that elementary row operations preserve the linearly independency of column vectors.
+From linear algebra, we know that elementary row operations preserve the linear independence of column vectors.
 Let $R$ be the reduced row echelon form of $B$.
 Since $R$ must have a rank of $r$, it only has $r$ leading zeros.
 In other words, $R$ has exactly $r$ non-zero row vectors.
-Removing zero rows clearly does not affect the linearly independency.
+Removing zero rows clearly does not affect the linear independence.
 Therefore, we found a matrix in $\mathbb{F}^{r \times k}$ whose column matroid is isomorphic to $M$.
 \end{proof}
 
@@ -64,7 +64,7 @@ $\bigg\{\begin{pmatrix}0\\0\end{pmatrix},
 \begin{pmatrix}1\\1\end{pmatrix}\bigg\}$
 $A$ must not contain $\begin{pmatrix}0\\0\end{pmatrix}$ since it is a loop. 
 Since $A$ has 4 columns and there are only 3 different column vectors, we know that there are two columns in $A$ that have the exact same column vectors.
-This is also a contradiction since a subset of such two elements will not be independent.
+This is a contradiction since a subset of such two elements will not be independent.
 Therefore, $U_{2, 4}$ is not representable over $GF(2)$.
 \end{proof}
 
@@ -106,9 +106,9 @@ Fano matroid is indeed a matroid.
 \begin{proof}
 An empty set is independent since it contains less than 2 elements.
 Any independent set has at most three elements, so any proper subset of it has at most two elements.
-Therefore, any subset of independent set is always independent.
+Therefore, any subset of independent sets is always independent.
 The third property can be proved by checking each case.
-Since any set with 2 or less elements is independent, we only need to care about the case when we have a set with 2 elements and a set of three elements.
+Since any set with 2 or fewer elements is independent, we only need to care about the case when we have a set with 2 elements and a set of three elements.
 Let $A = \{ a_1, a_2, a_3 \}$, $B = \{ b_1, b_2\}$ be independent sets.
 It is easy to see from the figure that there must be exactly one line that goes through both $b_1$ and $b_2$.
 Let $x$ denote the third point on such line.
@@ -169,7 +169,7 @@ $\begin{pmatrix}
 0 & 0 & 1 & 0 & b & -ab & ? \\
 \end{pmatrix}$
 Since $\{3, 4, 7\}$ is dependent, $R_{2, 7} = a$.
-And since $\{1, 5, 7\}$ is dependent, $R_{3, 7} = b * R_{2, 7} = ab$.
+And since $\{1, 5, 7\}$ is dependent, $R_{3, 7} = b R_{2, 7} = ab$.
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & 1 \\
 0 & 1 & 0 & a & 1 & 0 & a \\
@@ -201,4 +201,5 @@ A matroid is called \textit{regular} if it can be represented over any field.
 I'll use rank here.
 \end{proof}
 
+The number of matroids increases exponentially as the size of the ground set increases.
 

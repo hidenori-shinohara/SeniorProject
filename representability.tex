@@ -29,7 +29,7 @@ Since $A, B \in \mathcal{I}'$, we know that $A, B \in \mathcal{I}$.
 Therefore, we can find $x \in B - A$ such that $(A \cup \{ x \}) \in \mathcal{I}$.
 Since $(A \cup \{ x \}) \subseteq (A \cup B)$ and $X \cap A = X \cap B = \emptyset$, $X \cap (A \cup \{ x \}) = \emptyset$.
 Therefore, $A \cup \{ x \} \in \mathcal{I}'$.
-Thus we have found such $x \in B - A$ that $A \cup \{ x \} \in \mathcal{I}'$.
+Thus, we have found such $x \in B - A$ that $A \cup \{ x \} \in \mathcal{I}'$.
 Since $M' = M \backslash X$ follows the three properties, it is indeed a matroid. 
 \end{proof}
 
@@ -48,7 +48,7 @@ Contraction by an element indeed generates a matroid.
 \end{thm}
 
 \begin{proof}
-If $e$ is a loop, $M / e$ is obviously a matrod since we know that deletion always generates a matroid.
+If $e$ is a loop, $M / e$ is obviously a matroid since we know that deletion always generates a matroid.
 Suppose otherwise.
 Let $\mathcal{I}'$ denote the independent sets of $M / e$.
 First, $\emptyset \in \mathcal{I}, e \notin \emptyset$. Since $e$ is not a loop, $(\emptyset \cup \{ e \}) \in \mathcal{I}$.
@@ -133,7 +133,7 @@ One of $e, f$ is a loop, and the other one is not. \\
 Without loss of generality, assume $e$ is a loop.
 $(M / e) / f = (M \backslash e) / f$.
 Since deletion of a loop does not change the independent set, the independent set of $(M / e)$ is $\mathcal{I}$.
-Therefore, the independent set of $(M / e) / f$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid f \notin I, (I \cup \{ f \}) \in \mathcal{I} \}$.
+Therefore, the independent sets of $(M / e) / f$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid f \notin I, (I \cup \{ f \}) \in \mathcal{I} \}$.
 On the other hand, it is easy to see that $\mathcal{I}'$ is identical to the independent sets of $(M / f)$.
 Since contraction by an element does not add new elements to the independent sets, $e$ is a loop in $(M / f)$.
 Since deletion by a loop does not change the independent sets, the independent sets of $(M / f) / e$ is $\mathcal{I}'$.
@@ -186,36 +186,59 @@ Therefore, in any case, $(M / e) / f = (M / f) / e$.
 \end{proof}
 
 
-List of topics I could discuss further:
-\begin{itemize}
 %\item Maybe talk about dual matroid
 %  \begin{itemize}
 %    \item redefine contraction/deletion in terms of dual
 %  \end{itemize}
 
-\item More properties about contraction deletion
-  \begin{itemize}
-    \item $(M / e) \backslash f = (M \backslash f) / e$ ?
-    \item Therefore, any minor can be represented as $(M \backslash A) / B$
-  \end{itemize}
-\end{itemize}
+Now that we have defined contraction and deletion, we can define a \textit{minor} of a matroid.
+
+\begin{defn}
+A minor of a matroid is a matroid that can be obtained by some (possibly zero) a number of contraction and deletion.
+\end{defn}
+
+Therefore, most matroids have more than one minors.
+To define the matroid minor more concisely, we will prove the following theorem.
+
+
+\begin{thm}
+Let a matroid $M = (E, \mathcal{I})$ and $e \neq f \in E$ be given.
+Then $(M / e) \backslash f = (M \backslash f) / e$.
+\end{thm}
+
+\begin{proof}
+Prove it here.
+\end{proof}
+
+By this theorem, we know that any series of operations can be expressed as $(M / A) \backslash B$ where $A, B$ are disjoint subsets of $E$.
+Therefore, the following definition is equivalent to the previous definition.
+
+\begin{defn}
+Let $M = (E, \mathcal{I})$ be given.
+Let $A, B$ be disjoint subsets of $E$.
+Then a matroid $(M / A) \backslash B$ is called a minor of $M$.
+\end{defn}
+
+Moreover, if $A \cup B \neq \emptyset$, we call $(M / A) \backslash B$ a \textit{proper minor}.
+
+Of course, we could have defined a minor as $(M \backslash A) / B$ instead of $(M \ A) \backslash B$.
+
 
 \subsection{What do contraction and deletion mean in graphs and vector spaces?}
+In vector spaces, contraction can be considered as projection.
+Maybe insert a figure.
 
 \subsection{Why do these matter?}
-Because if a matroid is representable over some field $\mathbb{F}$, its minor is always representable over $\mathbb{F}$.
-
+The discussion of contraction and deletion is very important when discussing the representability of matroids since if a matroid is representable over some field $\mathbb{F}$, its minor is always representable over $\mathbb{F}$.
 
 \begin{thm}
 Let a matroid $M = (E, \mathcal{I})$ such that it is representable over $\mathbb{F}$.
 Any minor of $M$ is representable over $\mathbb{F}$.
 \end{thm}
 
-
 \begin{proof}
-prove!
+Prove it!
 \end{proof}
-
 
 However, neither the converse nor the inverse of this theorem is always true.
 Any matroid has a representable minor since $U_{0, k}$ is a minor of any matroid.
@@ -223,8 +246,9 @@ Also, $U_{2, 4}$ is not a binary matroid, but any minor of it only contains at m
 Rota's conjecture is about unrepresentable matroids any of whose minor is representable.
 
 \subsection{The introduction of Rota's conjecture}
-\begin{thm}
+\begin{conj}
 For any finite field $\mathbb{F}$, there are only finitely many unrepresentable matroids all of whose minors are representable. 
-In other words, there are only finitely many \textit{excluded minor}.
-\end{thm}
+In other words, there are only finitely many \textit{excluded minors}.
+\end{conj}
 
+(Add a simple sketch of proof if I understand it)
