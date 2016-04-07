@@ -237,7 +237,33 @@ Any minor of $M$ is representable over $\mathbb{F}$.
 \end{thm}
 
 \begin{proof}
-Prove it!
+It suffices to show that $M / e$ and $M \backslash e$ are both representable over $\mathbb{F}$ for any $e \in E$.
+Let $r$ be a rank of $M$, $n = \lvert E \rvert$.
+Let $e \in E$ be given.
+Let $A = \begin{pmatrix}u_1 u_2 \cdots u_n\end{pmatrix} \in \mathbb{F}^{r \times n}$ be a matrix such that the column matroid of $M$ is isomorphic to $A$.
+Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n$.
+\begin{enumerate}
+\item 
+  First, we prove the case of deletion.
+  We claim that $M \backslash e$ is isomorphic to the column matroid of $\begin{pmatrix} u_1 u_2 \cdots u_{n-1} \end{pmatrix}$.
+  We prove so by comparing the independent sets of each matroid.
+  By definition, $M \backslash e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I \})$.
+  Let $U = \{ u_{i_1}, u_{i_2}, \cdots, u_{i_k} \}$ be a subset of $\{ u_1, u_2, \cdots, u_{n-1} \}$.
+  We want to show that $U$ is linearly independent if and only if $\{ i_1, i_2, \cdots i_k \}$ is linearly independent in $M \backslash e$.
+  Suppose $U$ is linearly independent. 
+  Then $\{ i_1, i_2, \cdots i_k \}$ is independent in the column matroid of $A$.
+  Since $\{ i_1, i_2, \cdots i_k \}$ is in $\mathcal{I}$ and does not contain $e = n$, it is independent in $M \backslash e$ as well.
+  Suppose $U$ is linearly dependent. 
+  Then $\{ i_1, i_2, \cdots i_k \}$ is dependent in the column matroid of $A$.
+  Since $\{ i_1, i_2, \cdots i_k \}$ is not in $\mathcal{I}$ it is dependent in $M \backslash e$ as well.
+  Therefore, $M \backslash e$ is representable over $\mathbb{F}$.
+\item
+  Next, we prove the case of contraction.
+  We prove so by comparing the independent sets of each matroid.
+  By definition, $M / e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (e \cup I) \in \mathcal{I}\})$.
+  We claim that $M / e$ is isomorphic to the column matroid of $B \in \mathbb{F}^{r \times n-1}$, 
+  where $i$th column of $B$, $b_i$, is $\displaystyle u_i - \frac{u_i \cdot u_n}{\lvert u_n \rvert ^ 2} u_n$.
+\end{enumerate}
 \end{proof}
 
 However, neither the converse nor the inverse of this theorem is always true.
