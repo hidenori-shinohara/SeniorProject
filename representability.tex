@@ -207,7 +207,33 @@ Then $(M / e) \backslash f = (M \backslash f) / e$.
 \end{thm}
 
 \begin{proof}
-Prove it here.
+There are a few cases.
+\begin{enumerate}
+\item
+Both $e$ and $f$ are loops.
+This case is easy to prove since neither contraction nor deletion add any new elements to the independent sets.
+In other words, $f$ is a loop in $(M / e)$ and $e$ is a loop in $(M \backslash f)$.
+$(M / e) \backslash f = (M \backslash e) \backslash f = (M \backslash f) \backslash e = (M \backslash f) / e$
+\item
+$e$ is a loop, but $f$ is not a loop.
+$(M / e) \backslash f = (M \backslash e) \backslash f$ since $e$ is a loop.
+$(M \backslash f) / e = (M \backslash f) \backslash e$ since $e$ is a loop in $(M \backslash f)$.
+We know that the order of deletion does not matter, so they are equivalent.
+\item
+$e$ is not a loop, but $f$ is a loop.
+Since the deletion of $f$ does not change the independent sets,
+$M$ and $(M \backslash f)$ both have the same independent sets, although their ground sets are not identical.
+Therefore, $(M / e)$ and $(M \backslash f) / e$ have the same independent sets from the definition of contraction.
+\item
+Neither $e$ nor $f$ is a loop.
+Let $X \subseteq E - \{e, f\}$.
+$X$ is independent in $(M / e) \backslash f$ if and only if $X$ is independent in $(M / e)$.
+$X$ is independent in $(M / e)$ if and only if $(X \cup \{ e \})$ is independent in $M$.
+On the other hand, $X$ is independent in $(M \backslash f) / e$ if and only if $X \cup \{ e \}$ is independent in $(M \backslash f)$.
+$X \cup \{ e \}$ is independent in $(M \backslash f)$ if and only if $X \cup \{ e \}$ is independent in $M$.
+Therefore, $X$ is independent in $(M / e) \backslash f$ if and only if $X$ is independent in $(M \backslash f) / e$.
+\end{enumerate}
+Therefore, in every case, $(M / e) \backslash f$ is identical to $(M \backslash f) / e$.
 \end{proof}
 
 By this theorem, we know that any series of operations can be expressed as $(M / A) \backslash B$ where $A, B$ are disjoint subsets of $E$.
@@ -225,7 +251,7 @@ Of course, we could have defined a minor as $(M \backslash A) / B$ instead of $(
 
 
 \subsection{What do contraction and deletion mean in graphs and vector spaces?}
-In vector spaces, contraction can be considered as projection.
+In vector spaces, contraction can be considered as projection to its orthogonal vector.
 Maybe insert a figure.
 
 \subsection{Why do these matter?}
@@ -259,11 +285,16 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   Therefore, $M \backslash e$ is representable over $\mathbb{F}$.
 \item
   Next, we prove the case of contraction.
-  We prove so by comparing the independent sets of each matroid.
+  First, assume $e$ is a loop.
+  Then the corresponding column of $A$ must be a zero vector.
+  It is easy to see that simply removing the column will yield a matrix whose column vector is isomorphic to $M / e = M \backslash e$.
+  Now, assume $e$ is not a loop.
+  Then the corresponding column of $A$ must not be a zero vector.
+  We prove the proposition by comparing the independent sets of each matroid.
   By definition, $M / e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (e \cup I) \in \mathcal{I}\})$.
   We claim that $M / e$ is isomorphic to the column matroid of $B \in \mathbb{F}^{r \times n-1}$, 
   where $i$th column of $B$, $b_i$, is $\displaystyle u_i - \frac{u_i \cdot u_n}{\lvert u_n \rvert ^ 2} u_n$.
-  (proof continues)
+  (hmmmmmmmmmmmmmm??????)
 \end{enumerate}
 \end{proof}
 
