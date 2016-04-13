@@ -1,0 +1,42 @@
+\section{The introduction of Rota's conjecture}
+
+\begin{conj}
+For each finite field $\mathbb{F}$, there are, up to isomorphism, only finitely many excluded minors for the class of $\mathbb{F}$-representable matroids.
+\end{conj}(From \textit{Solving Rota's conjecture})
+
+
+In other words, given a finite field $\mathbb{F}$, let $F$ be a family of all matroids that are representable over $\mathbb{F}$.
+By the theorem from the previous chapter, we know that $F$ is minor-closed, i.e., any minor of any element in $F$ is in $F$.
+Then an excluded minor is a matroid $M \notin F$ such that any minor of $M$ is in $F$.
+The conjecture states that for any finite field $\mathbb{F}$, there are only finitely many excluded minors.
+
+Geelen, Gerards, Whittle announced that they have solved Rota's Conjecture.
+Here is a brief summary of their proof.
+
+As matroid theory is partially an abstraction of graph theory, they have used several theorems from graph theory.
+Here is one of the theorems from graph theory.
+Note that the minor of a graph is a graph that can be obtained by contracting some edges, and it does not include deletion of edges.
+
+\begin{thm}
+Let $F$ be a minor-closed family of graphs, that is, $\forall G \in F$, any minor of $G$ is in $F$.
+Then there are only finitely many graphs $H$ such that $H \notin F$ and any minor of $H$ is in $F$.
+In other words, each minor-closed class of graphs has only finitely many excluded minors.
+\end{thm}
+
+This is called as \textit{Well-Quasi-Ordering Theorem}.
+One special case of this theorem is a set of planar graphs.
+Any minor of a planar graph is also planar.
+Therefore, a set $S$ of planar graphs is minor-closed.
+Kuratowski's theorem indeed states that there are only two excluded minors, $K_{3, 3}, K_5$.
+
+This theorem is very similar to Rota's Conjecture as they are both about a minor-closed family of mathematical objects and claim that there are only finitely many excluded minors.
+
+Here is a generalized version of WQO theorem.
+
+\begin{thm}
+Let a finite field $\mathbb{F}$ be given and $F$ be a minor-closed family of $\mathbb{F}$-representable matroids.
+Then there are only finitely many $\mathbb{F}$-representable matroids $M$ such that $M \notin F$ and any minor of $M$ is in $F$.
+In other words, for each finite field $\mathbb{F}$ and each minor-closed class of $\mathbb{F}$-representable matroids, there are only finitely many $\mathbb{F}$-representable excluded minors.
+\end{thm}
+
+This is an extension of WQO theorem from graphs to $\mathbb{F}$-representable matroids.
