@@ -7,7 +7,7 @@ For each finite field $\mathbb{F}$, there are, up to isomorphism, only finitely 
 
 In other words, given a finite field $\mathbb{F}$, let $F$ be a family of all matroids that are representable over $\mathbb{F}$.
 By the theorem from the previous chapter, we know that $F$ is minor-closed, i.e., any minor of any element in $F$ is in $F$.
-Then an excluded minor is a matroid $M \notin F$ such that any minor of $M$ is in $F$.
+Then, an excluded minor is a matroid $M \notin F$ such that any minor of $M$ is in $F$.
 The conjecture states that for any finite field $\mathbb{F}$, there are only finitely many excluded minors.
 
 Geelen, Gerards, Whittle announced that they have solved Rota's Conjecture.
@@ -46,6 +46,8 @@ In other words, obviously, there are never any $\mathbb{F}$-representable exclud
 
 They mention that "the most significant ingredient is an analogue of the Graph Minors Structure Theorem".
 
+(Put some description once I understand what Graph Minors Structure Theorem is)
+
 Another important concept is connectivity.
 \begin{defn}
 A $k$-separation in a matroid $M = (E, \mathcal{I})$ is a partition $(X, Y)$ of $E$ such that $r_M(X) + r_M(Y) - r_M(E) < k$ and $\lvert X \rvert, \lvert Y \rvert \geq k$.
@@ -66,9 +68,8 @@ No matroid has 0-separation.
 \begin{proof}
 Let $I$ be a maximal independent set.
 Then $\lvert I \rvert = r_M(E)$.
-Let $I_X \subseteq X, I_Y \subseteq Y$.
+Let $I_X = I \cap X, I_Y = I \cap Y$.
 Then $\lvert I_X \rvert \leq r_M(X), \lvert I_Y \rvert \leq r_M(Y)$.
-Obviously, $\lvert I_X \rvert \leq r_M(X), \lvert I_Y \rvert \leq r_M(Y)$.
 Therefore, $r_M(X) + r_M(Y) - r_M(E) \geq 0$
 \end{proof}
 
@@ -78,7 +79,7 @@ $U_{2, 4}$ is indeed 3-connected.
 \end{thm}
 $U_{2, 4}$ is the only forbidden minor in $GF(2)$.
 \begin{proof}
-Let a partition of $E$, $(X, Y)$ be given.
+Let a partition of $E$, $(X, Y)$, be given.
 Without loss of generality, $\lvert X \rvert \leq \lvert Y \rvert$.
 Consider the case when $\lvert X \rvert = 1$.
 Then we know that $r_M(X) = 1, r_M(Y) = 2$.
