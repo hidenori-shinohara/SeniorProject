@@ -68,17 +68,19 @@ This is a contradiction since a subset of such two elements will not be independ
 Therefore, $U_{2, 4}$ is not representable over $GF(2)$.
 \end{proof}
 
+\begin{rem}
 $U_{2, 4}$ is representable over some field such as $\mathbb{R}$.
 For example, the column matroid of $\begin{pmatrix}
 1 & 1 & 1 & 1 \\
 1 & 2 & 3 & 4 
 \end{pmatrix}$ is isomorphic to $U_{2, 4}$.
+\end{rem}
 
 
-Now, we will introduce Fano matroid.
-Fano matroid can be constructed from Fano plane.
-Fano matroid is one of the examples of matroids that are representable over $GF(2)$, but not over $\mathbb{R}$.
-We will start by defining Fano matroid mathematically.
+Now, we will introduce the Fano matroid.
+The Fano matroid can be constructed from the Fano plane.
+The Fano matroid is one of the examples of matroids that are representable over $GF(2)$, but not over $\mathbb{R}$.
+We will start by defining the Fano matroid mathematically.
 
 \begin{figure}
   \centering
@@ -88,19 +90,20 @@ We will start by defining Fano matroid mathematically.
 \end{figure}
 
 \begin{defn}
-Fano matroid is a matroid with a ground set $\{ 1, 2, \cdots, 7 \}$. 
-A set of vertexes is independent if it satisfies one of the followings:
+The Fano matroid is a matroid with a ground set $\{ 1, 2, \cdots, 7 \}$. 
+Each number corresponds to the vertex in the figure $1$.
+A set $S$ of elements is independent if it satisfies one of the following:
 \begin{enumerate}
-\item it contains less than or equal to 2 elements,
-\item it contains exactly 3 points and they are not on the same line.
+\item $\lvert S \rvert < 3$,
+\item $\lvert S \rvert = 3$ and the corresponding vertices are not on the same line.
 \end{enumerate}
-Any set of vertexes that have more than 3 elements is dependent.
+$S$ is always dependent if $\lvert S \rvert > 3$.
 \end{defn}
 
 For example, $\{4, 5\}$ and $\{ 1, 2, 3 \}$ are independent, but $\{ 1, 4, 2 \}$, $\{1, 5, 7\}$, and $\{4, 5, 6 \}$ are not independent as each of them is on one line.
 
 \begin{thm}
-Fano matroid is indeed a matroid.
+The Fano matroid is indeed a matroid.
 \end{thm}
 
 \begin{proof}
@@ -116,78 +119,81 @@ Then, adding any element other than $b_1, b_2, x$ to $B$ will generate an indepe
 Therefore, we just need to make sure that $A \neq \{ b_1, b_2, x \}$.
 That cannot be the case since $\{ b_1, b_2, x \}$ is dependent and $A$ is independent.
 Therefore, there must be an element $a \in A - B$ such that $B \cup \{ a \}$ is independent.
-Since Fano matroid satisfies all three properties, it is indeed a matroid.
+Since the Fano matroid satisfies all three properties, it is indeed a matroid.
 \end{proof}
 
 
-Here is an interesting property of Fano matroid
+Here is an interesting property of the Fano matroid
 \begin{thm}
-If Fano matroid is representable over a field $\mathbb{F}$, $1 + 1 = 0$ in that field.
+If the Fano matroid is representable over a field $\mathbb{F}$, $1 + 1 = 0$ in that field.
 \end{thm}
 
 \begin{proof}
-Suppose Fano matroid is representable over a given field $\mathbb{F}$.
-Let $A \in \mathbb{F}^{3 \times 7}$ such that $A$'s column matroid is isomorphic to Fano matroid.
+Suppose the Fano matroid is representable over a given field $\mathbb{F}$.
+Let $A \in \mathbb{F}^{3 \times 7}$ such that $A$'s column matroid is isomorphic to the Fano matroid.
 Let $R$ be a row reduced echelon form of $A$.
 Then the first three columns should be identical to $I_3$ since $R$ has a rank of 3.
 Since $\{1, 2, 4\}$ is dependent, $R_{3, 4}$ is 0.
-Applying the same argument to $\{2, 3, 5\}, \{1, 3, 6\}$, we get the following:
+Applying the same argument to $\{2, 3, 5\}, \{1, 3, 6\}$, we get the following:\\
 $\begin{pmatrix}
 1 & 0 & 0 & ? & 0 & ? & ? \\
 0 & 1 & 0 & ? & ? & 0 & ? \\
 0 & 0 & 1 & 0 & ? & ? & ? \\
-\end{pmatrix}$
-Since multiplying a non-zero constant to some column does not affect on the linearly independency, assume that the first non-zero elements of 4, 5, 6th columns are all 1.
+\end{pmatrix}$\\
+Since multiplying a non-zero constant to some column does not affect the linearly independency, assume that the first non-zero elements of 4, 5, 6th columns are all 1.
+Moreover, all of $4, 5, 6, 7$th columns have to contain at least two nonzero elements.
+If it is a zero vector, it will be a loop, and if it only has exactly one nonzero element, it will be parallel to one of the first three columns.
+Therefore, we get the following matrix.\\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & ? \\
 0 & 1 & 0 & ? & 1 & 0 & ? \\
 0 & 0 & 1 & 0 & ? & ? & ? \\
-\end{pmatrix}$
-
-Let $a = R_{2, 4}, b = R_{3, 5}$.
+\end{pmatrix}$\\
+Let $a = R_{2, 4}, b = R_{3, 5}$.\\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & ? \\
 0 & 1 & 0 & a & 1 & 0 & ? \\
 0 & 0 & 1 & 0 & b & ? & ? \\
-\end{pmatrix}$
-Since $\{4, 5, 6\}$ is dependent, $R_{3, 6}$ must be $-ab$.
+\end{pmatrix}$\\
+Since $\{4, 5, 6\}$ is dependent, $R_{3, 6}$ must be $-ab$.\\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & ? \\
 0 & 1 & 0 & a & 1 & 0 & ? \\
 0 & 0 & 1 & 0 & b & -ab & ? \\
-\end{pmatrix}$
+\end{pmatrix}$\\
 We need to look into the seventh column.
 The seventh column actually cannot contain any zero.
 For example, suppose $R_{1, 7} = 0$.
 Then, $\{2, 3, 7 \}$ would be dependent.
 That's a contradiction.
 Similar arguments apply to the case of $R_{2, 7} = 0, R_{3, 7} = 0$.
-By multiplying a non-zero constant, we get:
+By multiplying a non-zero constant, we get:\\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & 1 \\
 0 & 1 & 0 & a & 1 & 0 & ? \\
 0 & 0 & 1 & 0 & b & -ab & ? \\
-\end{pmatrix}$
+\end{pmatrix}$\\
 Since $\{3, 4, 7\}$ is dependent, $R_{2, 7} = a$.
-And since $\{1, 5, 7\}$ is dependent, $R_{3, 7} = b R_{2, 7} = ab$.
+And since $\{1, 5, 7\}$ is dependent, $R_{3, 7} = b R_{2, 7} = ab$.\\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & 1 \\
 0 & 1 & 0 & a & 1 & 0 & a \\
 0 & 0 & 1 & 0 & b & -ab & ab \\
-\end{pmatrix}$
+\end{pmatrix}$\\
 $\{ 2, 6, 7 \}$ is dependent as well.
 By observing those three columns, it is easy to see that $-(-ab) + ab$ must be 0.
 Since neither of $a, b$ is 0, $ab(1 + 1) = 0$ implies $1 + 1 = 0$.
 (If $a$ is 0, 1st column and 4th column would be identical. The similar argument applies to $b$.)
 \end{proof}
 
-This theorem is powerful, since this implies that Fano matroid is not representable over $\mathbb{R}$.
+This theorem is powerful, since this implies that the Fano matroid is not representable over $\mathbb{R}$.
+
 \begin{cor}
 Fano matroid is not representable over $\mathbb{R}$.
 \end{cor}
 
 \begin{proof}
-In $\mathbb{R}$, $1 + 1 \neq 0$. Therefore, Fano matroid is not representable over $\mathbb{R}$.
+In $\mathbb{R}$, $1 + 1 \neq 0$. Therefore, the Fano matroid is not representable over $\mathbb{R}$.
 \end{proof}
 
 

@@ -1,7 +1,7 @@
 \section{More discussion on matroid representability}
 This chapter will introduce a new concept, a matroid minor, which is crucial when discussing the matroid representability.
 
-In order to introduce a matroid minor, we first need to introduce two operations on matroids. Deletion and contraction.
+In order to introduce a matroid minor, we first need to introduce two operations on matroids: deletion and contraction.
 
 \begin{defn}
 Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
@@ -245,7 +245,7 @@ Then a matroid $(M / A) \backslash B$ is called a minor of $M$.
 
 Moreover, if $A \cup B \neq \emptyset$, we call $(M / A) \backslash B$ a \textit{proper minor}.
 
-Of course, we could have defined a minor as $(M \backslash A) / B$ instead of $(M \ A) \backslash B$.
+Of course, we could have defined a minor as $(M \backslash A) / B$ instead of $(M / A) \backslash B$.
 
 
 \subsection{What do contraction and deletion mean in graphs and vector spaces?}
@@ -300,13 +300,14 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   $\iff$ $\{ u_{i_1}, u_{i_2}, \cdots, u_{i_k}, u_{n} \}$ is linearly independent \\
   We are going to take a close look at this set of vectors.
   Let $c_1, c_2, \cdots, c_k, c \in \mathbb{F}$ be given such that $c_1 u_{i_1} + \cdots + c_k u_{i_k} + c u_n = 0$.\\
-  $\displaystyle c_1 b_{i_1} + \cdots + c_k b_{i_k} = \sum_{j=1,\cdots,k} c_j b_{i_j} 
-  = c_1 u_{i_1} + c_2 u_{i_2} + \cdots + c_k u_{i_k} - \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n
-  = -c u_n - \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n
-  = -\Big(c + \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n}\Big)u_n
-  = -\frac{\Big(c{u_n \cdot u_n} + \sum_{j=1,\cdots,k} c_j (u_i \cdot u_n)\Big)}{u_n \cdot u_n}u_n
-  = -\frac{(c_1 u_1 + c_2 u_2 + \cdots + c_k u_k + c u_n) \cdot u_n}{u_n \cdot u_n}u_n
-  = 0$. \\
+  \begin{align*}\displaystyle c_1 b_{i_1} + \cdots + c_k b_{i_k}
+  &= \sum_{j=1,\cdots,k} c_j b_{i_j}  \\
+  &= c_1 u_{i_1} + c_2 u_{i_2} + \cdots + c_k u_{i_k} - \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n  \\
+  &= -c u_n - \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n \\
+  &= -\Big(c + \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n}\Big)u_n \\
+  &= -\frac{\Big(c{u_n \cdot u_n} + \sum_{j=1,\cdots,k} c_j (u_i \cdot u_n)\Big)}{u_n \cdot u_n}u_n \\
+  &= -\frac{(c_1 u_1 + c_2 u_2 + \cdots + c_k u_k + c u_n) \cdot u_n}{u_n \cdot u_n}u_n \\
+  &= 0.\end{align*}
   Therefore, $\{ u_{i_1}, u_{i_2}, \cdots, u_{i_k}, u_{n} \}$ is linearly independent \\
   $\iff$ $\{ b_{i_1}, b_{i_2}, \cdots, b_{i_k} \}$ is linearly independent \\
   $\iff$ $\{ i_1, i_2, \cdots, i_k \}$ is independent in the column matroid of $B$. \\
