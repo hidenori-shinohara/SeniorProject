@@ -1,5 +1,15 @@
 
 * Prove the theorem 2.8 (intro_to_representability.tex)
 
+* Finding excluded minors seems to be very very difficult.
+  * https://en.wikipedia.org/wiki/Rota's_conjecture
 
+* The Fano matroid is one of the excluded minors of F3 and F5
+  * Is the Fano matroid always an excluded minors of a finite field of characteristic != 2?
+  * Let F be a field of characteristic not 2.
+  * We know that the Fano matroid is not representable over F
+  * Is every minor of the Fano matroid representable over F?
+    * Actually yes (as long as the Fano plane is "symmetric")
 
+* Projective plane of F3
+  * Too much

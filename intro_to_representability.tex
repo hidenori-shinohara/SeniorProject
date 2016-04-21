@@ -204,8 +204,43 @@ If a matroid $M = (E, \mathcal{I})$ only contains at most 3 non-loop elements, i
 A matroid is called \textit{regular} if it can be represented over any field.
 
 \begin{proof}
-Any loop can be 8*********************************8
+It is easy to see that all the loop elements will be associated with zero vectors.
+Therefore, it suffices to show the proposition for matroids with $\lvert E \rvert \leq 3$.
+Since $\lvert E \rvert \leq 3$, the rank of the matroid must be at most 3.
+Since $E$ does not contain any loop, the rank of the matroid must be at least 1.
+\begin{enumerate}
+\item $rank(M) = 1$\\
+It is easy to see that a matrix $A \in F^{1 \times \lvert E \rvert}$ filled with 1 will give a column matroid that is isomorphic to $M$.
+\item $rank(M) = 2$\\
+It is easy to see that $\lvert E \rvert \geq 2$.
+\begin{itemize}
+\item $\lvert E \rvert = 2$\\
+It is easy to see that $\mathcal{I} = \{ S \mid S \subseteq E \}$.
+It means that $A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$.
+\item $\lvert E \rvert = 3$\\
+Without loss of generality, $E = \{ 1, 2, 3 \}$, and $\{ 1, 2 \}$ is independent since there must be at least one independent set of size 2.
+Since $E$ does not contain any loop element, $\{ 3 \}$ is also independent.
+By the property of matroids, at least one of $\{ 1, 3 \}, \{ 2, 3 \}$ must be independent.
+\begin{enumerate}
+\item $\{ 1, 3 \}$ is independent, but $\{2, 3\}$ is not.\\
+  $A = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 1
+        \end{pmatrix}$.
+\item $\{ 2, 3 \}$ is independent, but $\{1, 3\}$ is not.\\
+  Similar to the previous case.
+\item Both of them are independent. \\
+  $A = \begin{pmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}$.
+\end{enumerate}
+\end{itemize}
+\item $rank(M) = 3$\\
+Since the rank is 3, $\mathcal{I} = \{ S \mid S \subseteq E \}$. $I_3$ will give a column matroid which is isomorphic to $M$.
+\end{enumerate}
+Therefore, in any case, $M$ is representable.
 \end{proof}
 
-The number of matroids increases exponentially as the size of the ground set increases.
+%The number of matroids increases exponentially as the size of the ground set increases.
 
