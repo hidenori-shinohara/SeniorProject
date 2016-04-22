@@ -10,6 +10,30 @@ By the theorem from the previous chapter, we know that $F$ is minor-closed, i.e.
 Then, an excluded minor is a matroid $M \notin F$ such that any minor of $M$ is in $F$.
 The conjecture states that for any finite field $\mathbb{F}$, there are only finitely many excluded minors.
 
+First, we will introduce some results related to excluded minors.
+
+\begin{thm}
+The Fano matroid is an excluded minor for the class of $\mathbb{F}$-representable matroids if the characteristic of $\mathbb{F}$ is not 2.
+\end{thm}
+\begin{proof}
+Let $M$ be a fano matroid.
+We know from the previous chapter that $M$ is not representable in a field if the characteristic of the field is not 2.
+Therefore, it suffices to show that any minor of $M$ is representable in those fields.
+Since any minor of a representable matroid is always representable, it suffices to show that $M / e$ and $M \backslash e$ are representable for any $e$ in those fields.
+By the symmetry of the Fano matroid(this needs a bit stronger reasoning), it suffices to show that $M / 7$ and $M \backslash  7$ are both representable in those fields.
+$M \backslash 7$ is isomorphic to the column matroid of the following matrix:
+$\begin{pmatrix}
+1 & 0 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 1 & 1 & 0 \\
+0 & 0 & 1 & 0 & 1 & -1 \\
+\end{pmatrix}$, where -1 is the additive inverse of 1.
+Similarly, $M / 7$ is isomorphic to the column matroid of the following matrix:
+$\begin{pmatrix}
+1 & 0 & 1 & 1 & 1 & 0 \\
+0 & 1 & 1 & 1 & 0 & 1
+\end{pmatrix}$.
+\end{proof}
+
 Geelen, Gerards, Whittle announced that they have solved Rota's Conjecture.
 Here is a brief summary of their proof.
 
@@ -60,6 +84,7 @@ A matroid is $k$-connected if it has no $l$-separation for any $l < k$.
 \begin{lem}
 For each field $\mathbb{F}$, each excluded minor for the class of $\mathbb{F}$-representable matroids is 3-connected.
 \end{lem}
+
 
 There are a few basic results about this.
 
