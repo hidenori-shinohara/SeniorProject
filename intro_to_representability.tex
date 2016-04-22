@@ -206,20 +206,22 @@ A matroid is called \textit{regular} if it can be represented over any field.
 \begin{proof}
 It is easy to see that all the loop elements will be associated with zero vectors.
 Therefore, it suffices to show the proposition for matroids with $\lvert E \rvert \leq 3$.
-Since $\lvert E \rvert \leq 3$, the rank of the matroid must be at most 3.
-Since $E$ does not contain any loop, the rank of the matroid must be at least 1.
+If $E = \emptyset$, we are done.
+Since $0 < \lvert E \rvert \leq 3$, the rank of the matroid must be at most 3.
+Since $E$ does not contain any loop and it is not empty, the rank of the matroid must be at least 1.
 \begin{enumerate}
 \item $rank(M) = 1$\\
-It is easy to see that a matrix $A \in F^{1 \times \lvert E \rvert}$ filled with 1 will give a column matroid that is isomorphic to $M$.
+A matrix $A \in F^{1 \times \lvert E \rvert}$ filled with 1 will give a column matroid that is isomorphic to $M$.
+Every column vector is linearly independent, but a set with at least two vectors is always linearly dependent.
 \item $rank(M) = 2$\\
 It is easy to see that $\lvert E \rvert \geq 2$.
 \begin{itemize}
 \item $\lvert E \rvert = 2$\\
 It is easy to see that $\mathcal{I} = \{ S \mid S \subseteq E \}$.
-It means that $A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$.
+It means that $A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ will give an isomorphic matroid.
 \item $\lvert E \rvert = 3$\\
-Without loss of generality, $E = \{ 1, 2, 3 \}$, and $\{ 1, 2 \}$ is independent since there must be at least one independent set of size 2.
-Since $E$ does not contain any loop element, $\{ 3 \}$ is also independent.
+Without loss of generality, $E = \{ 1, 2, 3 \}$, and let $\{ 1, 2 \}$ be independent since there must be at least one independent set of size 2.
+Since $E$ does not contain any loop element, $\{ 3 \}$ must independent.
 By the property of matroids, at least one of $\{ 1, 3 \}, \{ 2, 3 \}$ must be independent.
 \begin{enumerate}
 \item $\{ 1, 3 \}$ is independent, but $\{2, 3\}$ is not.\\
