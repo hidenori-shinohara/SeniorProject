@@ -12,11 +12,12 @@ The conjecture states that for any finite field $\mathbb{F}$, there are only fin
 
 First, we will introduce some results related to excluded minors.
 
+
 \begin{thm}
 The Fano matroid is an excluded minor for the class of $\mathbb{F}$-representable matroids if the characteristic of $\mathbb{F}$ is not 2.
 \end{thm}
 \begin{proof}
-Let $M$ be a fano matroid.
+Let $M$ be the Fano matroid.
 We know from the previous chapter that $M$ is not representable in a field if the characteristic of the field is not 2.
 Therefore, it suffices to show that any minor of $M$ is representable in those fields.
 Since any minor of a representable matroid is always representable, it suffices to show that $M / e$ and $M \backslash e$ are representable for any $e$ in those fields.
@@ -39,8 +40,8 @@ Here is a brief summary of their proof.
 
 As matroid theory is, in a way, an abstraction of graph theory, they have used several theorems from graph theory.
 Particularly, they extended Graph Minors Project to matroids.
-In "Solving Rota's Conjecture", they mention that this exntension was really important since "the Graph Minors Theory had exactly the kind of general purpose tools that we lacked".
-Note that the minor of a graph is a graph that can be obtained by contracting some edges and it does not include deletion of edges.
+In "Solving Rota's Conjecture", they mention that this extension was really important since "the Graph Minors Theory had exactly the kind of general purpose tools that we lacked".
+Note that the minor of a graph can be obtained by deleting edges and vertices and by contracting edges.
 
 \begin{thm}
 Let $F$ be a minor-closed family of graphs, that is, $\forall G \in F$, any minor of $G$ is in $F$.
