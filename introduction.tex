@@ -6,7 +6,7 @@ Interestingly, a lot of sets of other mathematical objects often share those pro
 For example, any subset of a linearly independent set of vectors is always linearly independent.
 Consider a subset of edges of a graph that does not contain any cycle.
 Then any subset of it does not contain any cycle.
-The matroid theory is an attempt to mathematically formalize those properties and investigate in them.
+The matroid theory is an attempt to mathematically formalize those properties.
 
 \begin{defn}
 A matroid $M = (E, \mathcal{I})$ is a pair such that $E$ is a finite set of elements, and $\mathcal{I}$ is a family of subsets of $E$ with the following properties:
@@ -16,11 +16,11 @@ A matroid $M = (E, \mathcal{I})$ is a pair such that $E$ is a finite set of elem
 \item For any $A, B \in \mathcal{I}$ such that $\lvert A \rvert < \lvert B \rvert$, there always exists $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}$.
 \end{itemize}
 \end{defn}
-$E$ is called the ground set, $\mathcal{I}$ is called the independent sets. A subset of $E$ is called independent if and only if it is in $\mathcal{I}$.
+$E$ is called the ground set, $\mathcal{I}$ is called a family of independent sets. A subset of $E$ is called independent if and only if it is in $\mathcal{I}$.
 In this paper, we will put our focus on a matroid with a finite ground set. 
 
 
-There are some basic matroids that are important in the following discussions.
+There are some basic matroids that are important in the following discussion.
 We will start by introducing a column matroid. 
 A column matroid is constructed from a matrix over a field $\mathbb{F}$.
 
@@ -41,7 +41,7 @@ Let $A = \{a_1, \cdots, a_k\} \subseteq B = \{b_1, \cdots, b_n\}$ be such sets.
 Since $A$ is linearly dependent, there exist constants $c_1, \cdots, c_k$ such that $c_1 a_1 + \cdots + c_k a_k = 0$ and not all $c_i$'s are $0$.
 However, that implies that we can find constants $d_1, \cdots, d_n$ such that $d_1 b_1 + \cdots + d_k b_k = 0$ and not all $d_i$'s are $0$.
 This is a contradiction since $B$ is supposed to be independent.
-Therefore, such subset must not exist, and thus all subsets of linearly independent sets are linearly independent.
+Therefore, such a subset must not exist, and thus all subsets of linearly independent sets are linearly independent.
 Now we want to prove the third property.
 Let $A = \{a_1, \cdots, a_k\}, B = \{b_1, \cdots, b_n\}$ be linearly independent sets, and assume that $k < n$.
 Suppose for each $i = 1, \cdots, n$, $b_i \in span\{ a_1, \cdots, a_k \}$.

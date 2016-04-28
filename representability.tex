@@ -48,7 +48,7 @@ Contraction by an element indeed generates a matroid.
 \begin{proof}
 If $e$ is a loop, $M / e$ is obviously a matroid since we know that deletion always generates a matroid.
 Suppose otherwise.
-Let $\mathcal{I}'$ denote the independent sets of $M / e$.
+Let $\mathcal{I}'$ denote a family of independent sets of $M / e$.
 First, $\emptyset \in \mathcal{I}, e \notin \emptyset$. Since $e$ is not a loop, $(\emptyset \cup \{ e \}) \in \mathcal{I}$.
 Therefore, $\emptyset \in \mathcal{I}'$.
 Let $I \in \mathcal{I}', J \subseteq I$.
@@ -80,23 +80,23 @@ Then $A$ is independent in $M$.
 \end{thm}
 
 \begin{proof}
-The independent sets of $M \backslash X$ is $\{ I \in \mathcal{I} \mid (I \cap X) = \emptyset \}$.
+A family of independent sets of $M \backslash X$ is $\{ I \in \mathcal{I} \mid (I \cap X) = \emptyset \}$.
 It is easy to see that it is a subset of $\mathcal{I}$.
 Since $A$ is in the subset of $\mathcal{I}$, $A$ must be in $\mathcal{I}$.
 \end{proof}
 
-In other words, this means that deletion never "adds" a new element to the independent sets.
+In other words, this means that deletion never "adds" a new element to a family of independent sets.
 
 
 \begin{thm}
-The deletion of a loop does not change the independent sets.
+The deletion of a loop does not change a family of independent sets.
 \end{thm}
 
 \begin{proof}
 Let $M = (E, \mathcal{I}), e \in E, \{ e \} \notin \mathcal{I}$.
-The independent sets of $M \backslash e$ is $\{ I \in \mathcal{I} \mid (I \cap \{ e \}) = \emptyset \}$.
+A family of independent sets of $M \backslash e$ is $\{ I \in \mathcal{I} \mid (I \cap \{ e \}) = \emptyset \}$.
 Since $\{ e \}$ is a loop, no independent set can contain $e$.
-Therefore, the independent sets of $M \backslash e$ is identical to $\mathcal{I}$.
+Therefore, a family of independent sets of $M \backslash e$ is identical to $\mathcal{I}$.
 \end{proof}
 
 Now that we have defined contraction of a matroid by an element, we can define contraction by a subset of a ground set.
@@ -120,9 +120,9 @@ There are a few cases.
 
 \item $e, f$ are both loops. \\
 $(M / e) / f = (M \backslash e) / f$
-Since deletion of a loop does not change the independent sets, $f$ is a loop in $(M \backslash e)$.
+Since deletion of a loop does not change a family of independent sets, $f$ is a loop in $(M \backslash e)$.
 Therefore, $(M / e) / f = (M \backslash e) \backslash f$.
-Again, deletion of $f$ does not change the independent sets since $f$ is a loop in $(M / e)$.
+Again, deletion of $f$ does not change a family of independent sets since $f$ is a loop in $(M / e)$.
 Therefore, we have $(M / e) / f = (E - \{ e, f \}, \mathcal{I})$.
 By symmetry, $(M / e) / f = (M / f) / e$.
 
@@ -130,19 +130,19 @@ By symmetry, $(M / e) / f = (M / f) / e$.
 One of $e, f$ is a loop, and the other one is not. \\
 Without loss of generality, assume $e$ is a loop.
 $(M / e) / f = (M \backslash e) / f$.
-Since deletion of a loop does not change the independent set, the independent set of $(M / e)$ is $\mathcal{I}$.
-Therefore, the independent sets of $(M / e) / f$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid f \notin I, (I \cup \{ f \}) \in \mathcal{I} \}$.
-On the other hand, it is easy to see that $\mathcal{I}'$ is identical to the independent sets of $(M / f)$.
-Since contraction by an element does not add new elements to the independent sets, $e$ is a loop in $(M / f)$.
-Since deletion by a loop does not change the independent sets, the independent sets of $(M / f) / e$ is $\mathcal{I}'$.
-Now we confirmed that $(M / e) / f$ and $(M / f) / e$ have the same independent sets.
+Since deletion of a loop does not change a family of independent set, a family of independent set of $(M / e)$ is $\mathcal{I}$.
+Therefore, a family of independent sets of $(M / e) / f$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid f \notin I, (I \cup \{ f \}) \in \mathcal{I} \}$.
+On the other hand, it is easy to see that $\mathcal{I}'$ is identical to a family of independent sets of $(M / f)$.
+Since contraction by an element does not add new elements to a family of independent sets, $e$ is a loop in $(M / f)$.
+Since deletion by a loop does not change a family of independent sets, a family of independent sets of $(M / f) / e$ is $\mathcal{I}'$.
+Now we confirmed that $(M / e) / f$ and $(M / f) / e$ have the same family of independent sets.
 Therefore, $(M / e) / f = (M / f) / e$.
 
 \item Neither of them is a loop, and $\{ e, f \} \in \mathcal{I}$. \\
-The independent set of $M / e$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid e \notin I, (I \cup \{ e \}) \in \mathcal{I} \}$.
+A family of independent set of $M / e$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid e \notin I, (I \cup \{ e \}) \in \mathcal{I} \}$.
 Since $\{ e, f \} \in \mathcal{I}$, $\{ f \} \in \mathcal{I}'$. 
 Therefore, $f$ is not a loop in $M / e$.
-Hence, the independent sets of $(M / e) / f$ is $\mathcal{I}'' = \{ I \in \mathcal{I}' \mid f \notin I, (I \cup \{ f \}) \in \mathcal{I}' \}$.
+Hence, a family of independent sets of $(M / e) / f$ is $\mathcal{I}'' = \{ I \in \mathcal{I}' \mid f \notin I, (I \cup \{ f \}) \in \mathcal{I}' \}$.
 $\mathcal{I}''$ is actually equivalent to $S = \{ I \in \mathcal{I} \mid e \notin I, f \notin I, (I \cup \{ e, f \}) \in \mathcal{I} \}$.
 We can prove $\mathcal{I}'' = S$ by starting to show that $\mathcal{I}'' \subseteq S$.
 Let $I \in \mathcal{I}''$.
@@ -158,15 +158,15 @@ Since $f \notin I$ and $(I \cup \{ f \}) \in \mathcal{I}'$, $I \in \mathcal{I}''
 Hence, $S \subseteq \mathcal{I}''$.
 
 Combining these two results, we know that $S = \mathcal{I}''$.
-By the symmetry, $(M / e) / f$ and $(M / f) / e$ have the same independent sets.
+By the symmetry, $(M / e) / f$ and $(M / f) / e$ have the same family of independent sets.
 Therefore $(M / e) / f = (M / f) / e$.
 
 \item Neither of $e, f$ is a loop, but $\{ e, f \} \notin \mathcal{I}$.\\
-The independent set of $M / e$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid e \notin I, (I \cup \{ e \}) \in \mathcal{I} \}$.
+A family of independent set of $M / e$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid e \notin I, (I \cup \{ e \}) \in \mathcal{I} \}$.
 Since $\{ e, f \} \notin \mathcal{I}$, $f$ is a loop in $M / e$.
 Therefore, $(M / e) / f = (M / e) \backslash f$.
-Since the deletion of a loop does not change the independent sets, the independent sets of $(M / e) / f$ is $\mathcal{I}'$.
-By applying the same argument, the independent set of $(M / f) / e$ is $\mathcal{I}'' = \{ I \in \mathcal{I} \mid f \notin I, (I \cup \{ f \} ) \in \mathcal{I} \}$.
+Since the deletion of a loop does not change a family of independent sets, a family of independent sets of $(M / e) / f$ is $\mathcal{I}'$.
+By applying the same argument, a family of independent set of $(M / f) / e$ is $\mathcal{I}'' = \{ I \in \mathcal{I} \mid f \notin I, (I \cup \{ f \} ) \in \mathcal{I} \}$.
 We want to show that $\mathcal{I}'  = \mathcal{I}''$.
 By the symmetry, it suffices to show that $\mathcal{I}' \subseteq \mathcal{I}''$.
 Let $I \in \mathcal{I}'$.
@@ -195,7 +195,7 @@ Now that we have defined contraction and deletion, we can define a \textit{minor
 A minor of a matroid is a matroid that can be obtained by some (possibly zero) a number of contraction and deletion.
 \end{defn}
 
-Therefore, most matroids have more than one minors.
+Therefore, most matroids have more than one minor.
 To define the matroid minor more concisely, we will prove the following theorem.
 
 
@@ -209,7 +209,7 @@ There are a few cases.
 \begin{enumerate}
 \item
 Both $e$ and $f$ are loops.
-This case is easy to prove since neither contraction nor deletion add any new elements to the independent sets.
+This case is easy to prove since neither contraction nor deletion add any new elements to a family of independent sets.
 In other words, $f$ is a loop in $(M / e)$ and $e$ is a loop in $(M \backslash f)$.
 $(M / e) \backslash f = (M \backslash e) \backslash f = (M \backslash f) \backslash e = (M \backslash f) / e$
 \item
@@ -219,7 +219,7 @@ $(M \backslash f) / e = (M \backslash f) \backslash e$ since $e$ is a loop in $(
 We know that the order of deletion does not matter, so they are equivalent.
 \item
 $e$ is not a loop, but $f$ is a loop.
-Since the deletion of $f$ does not change the independent sets,
+Since the deletion of $f$ does not change a family of independent sets,
 $M$ and $(M \backslash f)$ both have the same independent sets, although their ground sets are not identical.
 Therefore, $(M / e)$ and $(M \backslash f) / e$ have the same independent sets from the definition of contraction.
 \item
