@@ -117,19 +117,21 @@ Since $r_M(X) + r_M(Y) - r_M(E) < 2$ only if $r_M(X) = 1$, a 2-partition does no
 Therefore, $U_{2, 4}$ is indeed 3-connected.
 \end{proof}
 
-A weak version of this lemma can be proved as following:
+The connectivity is important because it turns out that excluded minors are very highly connected, and that is one of the important parts of the rest of the proof, which can be found in \cite{solving}
 
-\begin{lem}
-Let a finite field $\mathbb{F}$ and a matroid $M$ be given.
-If $M$ has a 1-separation $(X, Y)$, then $M$ is not an excluded minor.
-In other words, either it is representable or some of its minor is unrepresentable.
-\end{lem}
-
-\begin{proof}
-$r_M(X) + r_M(Y) \geq r_M(E)$ since a maximal independent set must be split into $X, Y$.
-Therefore, the existence of 1-separation implies that $r_M(X) + r_M(Y) = r_M(E)$.
-Without loss of generality, $\lvert X \rvert \leq \lvert Y \rvert$.
-Suppose $\lvert X \rvert \geq 2$.
-I think I can prove this, but I haven't thought this through...
-\end{proof}
-
+% A weak version of this lemma can be proved as following:
+% 
+% \begin{lem}
+% Let a finite field $\mathbb{F}$ and a matroid $M$ be given.
+% If $M$ has a 1-separation $(X, Y)$, then $M$ is not an excluded minor.
+% In other words, either it is representable or some of its minor is unrepresentable.
+% \end{lem}
+% 
+% \begin{proof}
+% $r_M(X) + r_M(Y) \geq r_M(E)$ since a maximal independent set must be split into $X, Y$.
+% Therefore, the existence of 1-separation implies that $r_M(X) + r_M(Y) = r_M(E)$.
+% Without loss of generality, $\lvert X \rvert \leq \lvert Y \rvert$.
+% Suppose $\lvert X \rvert \geq 2$.
+% I think I can prove this, but I haven't thought this through...
+% \end{proof}
+% 
