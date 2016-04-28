@@ -249,8 +249,26 @@ Of course, we could have defined a minor as $(M \backslash A) / B$ instead of $(
 
 
 \subsection{What do contraction and deletion mean in graphs and vector spaces?}
-In vector spaces, contraction can be considered as projection to its orthogonal vector.
-Maybe insert a figure.
+Deletion of a vector in the vector space is simply removing such a vector from the set.
+Contraction, however, is more complicated.
+In vector spaces, contraction can be considered as projection to its orthogonal vector as showin in the figure 2.
+In graphs, deletion of an edge simply removes an edge. Contraction of an edge combines the two nodes that the edge connects as shown in the figure 3.
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{vectors.png}
+    \caption{Contraction by a vector A}
+  \label{fig:test}
+\end{figure}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{graphs.png}
+    \caption{Contraction by an edge 3}
+  \label{fig:test}
+\end{figure}
+
+
 
 \subsection{Why do these matter?}
 The discussion of contraction and deletion is very important when discussing the representability of matroids since if a matroid is representable over some field $\mathbb{F}$, its minor is always representable over $\mathbb{F}$.
