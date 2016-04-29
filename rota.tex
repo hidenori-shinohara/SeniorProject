@@ -1,9 +1,9 @@
 \section{The introduction to Rota's Conjecture}
-This chapter introduces Rota's Conjecture and an outline of how the proof goes.
+This chapter introduces Rota's Conjecture and an outline of the proof.
 
 \begin{conj}[Rota's Conjecture]
 For each finite field $\mathbb{F}$, there are, up to isomorphism, only finitely many excluded minors for the class of $\mathbb{F}$-representable matroids.
-\end{conj}(From \textit{Solving Rota's conjecture})
+\end{conj}
 
 In other words, given a finite field $\mathbb{F}$, let $F$ be a family of all matroids that are representable over $\mathbb{F}$.
 By the theorem from the previous chapter, we know that $F$ is minor-closed, i.e., any minor of any element in $F$ is in $F$.
@@ -11,7 +11,6 @@ Then, an excluded minor is a matroid $M \notin F$ such that any minor of $M$ is 
 The conjecture states that for any finite field $\mathbb{F}$, there are only finitely many excluded minors.
 
 First, we will introduce some results related to excluded minors.
-
 
 \begin{thm}
 The Fano matroid is an excluded minor for the class of $\mathbb{F}$-representable matroids if the characteristic of $\mathbb{F}$ is not 2.
@@ -21,7 +20,14 @@ Let $M$ be the Fano matroid.
 We know from the previous chapter that $M$ is not representable in a field if the characteristic of the field is not 2.
 Therefore, it suffices to show that any minor of $M$ is representable in those fields.
 Since any minor of a representable matroid is always representable, it suffices to show that $M / e$ and $M \backslash e$ are representable for any $e$ in those fields.
-By the symmetry of the Fano matroid(this needs a bit stronger reasoning), it suffices to show that $M / 7$ and $M \backslash  7$ are both representable in those fields.
+It is obvious that $M / 1$, $M / 2$ and $M / 3$ are isomorphic to each other by the symmetry of the Fano plane.
+For the same reason, each matroid in each of the following sets is isomorphic to other matroids in the same set.
+$\{ M \backslash 1, M \backslash 2, M \backslash 3 \}, \{ M / 4, M / 5, M / 6 \}, \{ M \backslash 4, M \backslash 5, M \backslash 6 \}$.
+If we swap 1 with 4, 3 with 5, the Fano place still gives the identical matroid.
+That implies that deletion or contraction of any of 1, 2, 3, 4, 5, 6 always gives isomorphic matroids.
+Similarly, if we swap 6 with 7, 3 with 5, the Fano place still gives the identical matroid.
+That implies that deletion or contraction of any element always gives isomorphic matroids.
+Now that we have shown the symmetry, it suffices to show that $M / 7$ and $M \backslash  7$ are both representable in those fields.
 $M \backslash 7$ is isomorphic to the column matroid of the following matrix:
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 \\
@@ -35,21 +41,29 @@ $\begin{pmatrix}
 \end{pmatrix}$.
 \end{proof}
 
+Rota's conjecture has been proved for some finite fields.
+For example, $U_{2, 4}$ is the only excluded minor of $GF(2)$, and the proof can be found in \cite{lec9}.
+In $GF(3)$, there are 4 excluded minors, which are $F_7, F_7^\ast, U_{2, 5}, U_{3, 5}$.\cite{lec9}
+In $GF(4)$, there are 7 excluded minors, which are $U_{2, 6}, U_{4, 6}, P_6, F_7^-, (F_7^-)^\ast, P_8, P_8''$. 
+\cite{gf4}
+
 Geelen, Gerards, Whittle announced that they have solved Rota's Conjecture.
+As they mention in \cite{solving} that ``there is a significant difference between the concrete problem of finding the full set of obstructions for some particular field and the abstract problem of showing that there are finitely many obstructions for an arbitrary finite field",
+the approach they took was unique in a way that they started out by extending theorems from another field of mathematics to matroids.
 Here is a brief summary of their proof.
 
 As matroid theory is, in a way, an abstraction of graph theory, they have used several theorems from graph theory.
-Particularly, they extended Graph Minors Project to matroids.
-In "Solving Rota's Conjecture", they mention that this extension was really important since "the Graph Minors Theory had exactly the kind of general purpose tools that we lacked".
+% Particularly, they extended Graph Minors Project to matroids.
+% In \cite{solving}, they mention that this extension was really important since ``the Graph Minors Theory had exactly the kind of general purpose tools that we lacked".
+For example, they extended the graph minor theorem to matroids.
 Note that the minor of a graph can be obtained by deleting edges and vertices and by contracting edges.
 
-\begin{thm}
+\begin{thm}[Graph Minor Theorem]
 Let $F$ be a minor-closed family of graphs, that is, $\forall G \in F$, any minor of $G$ is in $F$.
 Then there are only finitely many graphs $H$ such that $H \notin F$ and any minor of $H$ is in $F$.
 In other words, each minor-closed class of graphs has only finitely many excluded minors.
 \end{thm}
 
-This is called the graph minor theorem.
 One special case of this theorem is a set of planar graphs.
 Any minor of a planar graph is also planar.
 Therefore, a set $S$ of planar graphs is minor-closed.
@@ -63,16 +77,17 @@ Then there are only finitely many $\mathbb{F}$-representable matroids $M$ such t
 In other words, for each finite field $\mathbb{F}$ and each minor-closed class of $\mathbb{F}$-representable matroids, there are only finitely many $\mathbb{F}$-representable excluded minors.
 \end{thm}
 
+This theorem is \textbf{Theorem 6} from \cite{solving}.
+
 More precisely, this is an extension from graphs to $\mathbb{F}$-representable matroids.
-(So, basically is this a theorem in Linear Algebra because $\mathbb{F}$-representable matroids are basically matrices?)
 
 Although the Matroid WQO Theorem and the graph minor theorem both discuss excluded minors, the Matroid WQO Theorem does not imply Rota's Conjecture.
 Rota's Conjecture is about a family of representable matroids, so all the excluded minors are non-representable.
 In other words, obviously, there are never any $\mathbb{F}$-representable excluded minors.
 
-They mention that "the most significant ingredient is an analogue of the Graph Minors Structure Theorem".
-
-(Put some description once I understand what Graph Minors Structure Theorem is)
+%They mention that ``the most significant ingredient is an analogue of the Graph Minors Structure Theorem".
+%
+%(Put some description once I understand what Graph Minors Structure Theorem is)
 
 Another important concept is connectivity.
 \begin{defn}
@@ -104,7 +119,7 @@ Therefore, $r_M(X) + r_M(Y) - r_M(E) \geq 0$
 \begin{thm}
 $U_{2, 4}$ is indeed 3-connected.
 \end{thm}
-$U_{2, 4}$ is the only forbidden minor in $GF(2)$.
+$U_{2, 4}$ is an excluded minor for $GF(2)$ as mentioned above, so this theorem should be true.
 \begin{proof}
 Let a partition of $E$, $(X, Y)$, be given.
 Without loss of generality, $\lvert X \rvert \leq \lvert Y \rvert$.
@@ -117,7 +132,7 @@ Since $r_M(X) + r_M(Y) - r_M(E) < 2$ only if $r_M(X) = 1$, a 2-partition does no
 Therefore, $U_{2, 4}$ is indeed 3-connected.
 \end{proof}
 
-The connectivity is important because it turns out that excluded minors are very highly connected, and that is one of the important parts of the rest of the proof, which can be found in \cite{solving}
+The connectivity is important because it turns out that excluded minors are very highly connected, and that is one of the important parts of the rest of the proof, which can be found in \cite{solving}.
 
 % A weak version of this lemma can be proved as following:
 % 
