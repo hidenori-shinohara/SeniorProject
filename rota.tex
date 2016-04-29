@@ -44,10 +44,76 @@ $\begin{pmatrix}
 Rota's conjecture has been proved for some finite fields.
 For example, $U_{2, 4}$ is the only excluded minor of $GF(2)$, and the proof can be found in \cite{lec9}.
 In $GF(3)$, there are 4 excluded minors, which are $F_7, F_7^\ast, U_{2, 5}, U_{3, 5}$.\cite{lec9}
-In $GF(4)$, there are 7 excluded minors, which are $U_{2, 6}, U_{4, 6}, P_6, F_7^-, (F_7^-)^\ast, P_8, P_8''$. 
-\cite{gf4}
+In $GF(4)$, there are 7 excluded minors, which are $U_{2, 6}, U_{4, 6}, P_6, F_7^-, (F_7^-)^\ast, P_8, P_8''$.\cite{gf4}
 
-Geelen, Gerards, Whittle announced that they have solved Rota's Conjecture.
+Here is a sketch of proof that $U_{2, 4}$ is the only excluded minor of $GF(2)$.
+The complete proof can be found in \cite{lec9}.
+
+First, we will assume the following lemmas. Proofs of them can be found in \cite{lec9}.
+
+\begin{lem}
+Let $B$ be a basis of a matroid $M = (S, \mathcal{I})$, and $e \notin B$.
+Then $B \cup \{ e \}$ contains a unique circuit.
+\end{lem}
+
+\begin{lem}
+Let $M, N$ be distinct matroids on the same ground set $S$.
+Suppose that there exists $B \subseteq S$ such that
+\begin{itemize}
+\item $B$ is a basis of $M$ and $N$.
+\item There is no $X$ such that $\lvert B \Delta X \rvert = 2$ and $X$ is a basis of exactly one of $M$ and $N$.
+\end{itemize}
+Then $M$ or $N$ has a $U_{2, 4}$ minor.
+\end{lem}
+
+\begin{thm}[Tutte's Theorem]
+$U_{2, 4}$ is the only excluded minor of $GF(2)$.
+In other words, a matroid $M$ is representable over $GF(2)$ if and only if $U_{2, 4}$ is not $M$'s minor.
+\end{thm}
+
+\begin{proof}
+By theorem 2.4, we know that $U_{2, 4}$ is not representable over $GF(2)$.
+Since any proper minor of $U_{2, 4}$ contains at most 3 elements, by theorem 2.9, we know that any proper minor of $U_{2, 4}$ is representable over $GF(2)$.
+Therefore, it suffices to prove that any matroid $M$ that is not representable over $GF(2)$ has a $U_{2, 4}$ minor.
+Let $M$ be such a matroid on a ground set $S$.
+We will find a representable matroid $N$ and prove that one of $N$ and $M$ has to have a $U_{2, 4}$ minor.
+First, without loss of generality, assume that $S = \{1, 2, 3, \cdots, n\}$ for some positive integer $n$.
+Let $B$ be a basis of $M$.
+Without loss of generality, $B = \{1, 2, 3, \cdots, k\}$.
+Let $v_i$ be a column vector for each $i = 1, 2, \cdots k$ with $k$ elements such that $i$th element is 1 and other elements are 0.
+For each $j = k + 1, k + 2, \cdots n$, let $C$ be the unique circuit in $B \cup \{ j \}$. 
+(The existence is guaranteed by the lemma above).
+Let $\displaystyle v_j = \sum_{i \in C - s } v_i$.
+Now, we have defined $v_i$ for $i = 1, \cdots, n$.
+Let $N$ be a column matroid of $\begin{pmatrix} v_1 v_2 \cdots v_n \end{pmatrix}$.
+Obviously $B$ is a basis of $N$ from the way we defined $N$.
+Now, we want to prove this property: For each $b \in B, s \in S \setminus B, B - b + s$ is a basis of $M$ if and only if it is a base of $N$.
+First, from the lemma above, we know that $B \cup \{ s \}$ has a unique circuit in $N$.
+The same goes for $M$.
+Moreover, they must be the same circuit from the way we defined $v_i$'s.
+
+If $B - b + s$ is dependent in $M$, it contains a circuit $C$ of $M$.
+Since $C$ must be included in $B + s$, we know that $C$ is the unique circuit of $B + s$ in $M$.
+Since $C$ is also a circuit in $N$, $B - b + s$ is dependent in $N$.
+
+On the other hand, suppose that $B - b + s$ is dependent in $N$.
+Let $C$ be a circuit of $N$ in $B - b + s$.
+Since $C$ must be in $B + s$, we know that $C$ is the unique circuit of $B + s$ in $N$.
+Since $C$ is also a circuit in $M$, $B - b + s$ is dependent in $M$.
+
+Since $B - b + s$ is independent in $N$ if and only if it is independent in $M$, we have proved the property.
+
+Now, let $X$ such that $\lvert B \Delta X \rvert = 2$.
+It means that there exists $b \in B, s \in S \setminus B$ such that $X = B - b + s$.
+Therefore, $X$ is a basis of $M$ if and only if it is a basis of $N$.
+In other words, $X$ is a basis of both $M$ and $N$ or neither of them.
+Therefore, there is no $X$ such that $\lvert B \Delta X \rvert = 2$ and $X$ is a basis of exactly one of $M$ and $N$.
+By lemma, we know that $M$ or $N$ has a $U_{2, 4}$ minor.
+Clearly, it must be $M$ that has $U_{2, 4}$ minor.
+\end{proof}
+
+However, finding a finite set of excluded minors for some finite case does not solve Rota's conjecture as it is more general.
+In 2013, Geelen, Gerards and Whittle announced that they have solved Rota's Conjecture.
 As they mention in \cite{solving} that ``there is a significant difference between the concrete problem of finding the full set of obstructions for some particular field and the abstract problem of showing that there are finitely many obstructions for an arbitrary finite field",
 the approach they took was unique in a way that they started out by extending theorems from another field of mathematics to matroids.
 Here is a brief summary of their proof.
@@ -77,7 +143,7 @@ Then there are only finitely many $\mathbb{F}$-representable matroids $M$ such t
 In other words, for each finite field $\mathbb{F}$ and each minor-closed class of $\mathbb{F}$-representable matroids, there are only finitely many $\mathbb{F}$-representable excluded minors.
 \end{thm}
 
-This theorem is \textbf{Theorem 6} from \cite{solving}.
+This theorem is theorem 6 from \cite{solving}.
 
 More precisely, this is an extension from graphs to $\mathbb{F}$-representable matroids.
 
