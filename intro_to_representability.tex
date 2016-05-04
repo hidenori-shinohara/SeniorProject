@@ -140,16 +140,17 @@ $\begin{pmatrix}
 0 & 1 & 0 & ? & ? & 0 & ? \\
 0 & 0 & 1 & 0 & ? & ? & ? \\
 \end{pmatrix}$\\
-Since multiplying a non-zero constant to some column does not affect the linearly independency, assume that the first non-zero elements of 4, 5, 6th columns are all 1.
-Moreover, all of $4, 5, 6, 7$th columns have to contain at least two nonzero elements.
+All of $4, 5, 6, 7$th columns have to contain at least two nonzero elements.
 If it is a zero vector, it will be a loop, and if it only has exactly one nonzero element, it will be parallel to one of the first three columns.
+Since multiplying a nonzero constant to some column does not affect the linearly independency, assume that the first non-zero elements of 4, 5, 6th columns, are all 1.
 Therefore, we get the following matrix.\\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & ? \\
 0 & 1 & 0 & ? & 1 & 0 & ? \\
 0 & 0 & 1 & 0 & ? & ? & ? \\
 \end{pmatrix}$\\
-Let $a = R_{2, 4}, b = R_{3, 5}$.\\
+Let $a = R_{2, 4}, b = R_{3, 5}$.
+Since both the $4$th columnn and the $5$th column contain at least two nonzero elements, neither $a$ nor $b$ is 0 \\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & ? \\
 0 & 1 & 0 & a & 1 & 0 & ? \\
@@ -182,8 +183,7 @@ $\begin{pmatrix}
 \end{pmatrix}$\\
 $\{ 2, 6, 7 \}$ is dependent as well.
 By observing those three columns, it is easy to see that $-(-ab) + ab$ must be 0.
-Since neither of $a, b$ is 0, $ab(1 + 1) = 0$ implies $1 + 1 = 0$.
-(If $a$ is 0, 1st column and 4th column would be identical. The similar argument applies to $b$.)
+Since neither $a$ nor $b$ is 0, $ab(1 + 1) = 0$ implies $1 + 1 = 0$.
 \end{proof}
 
 This theorem is powerful, since this implies that the Fano matroid is not representable over $\mathbb{R}$.

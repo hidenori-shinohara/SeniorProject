@@ -17,8 +17,8 @@ $M \backslash X$ is indeed a matroid
 
 \begin{proof}
 Let $M' = (E', \mathcal{I}') = M \backslash X$.
-Since $\emptyset \in \mathcal{I}$ and $X \cap \emptyset = \emptyset$, $\emptyset \in \mathcal{I}$.
-Let $I \in \mathcal{I}', J \subseteq I$. 
+Since $\emptyset \in \mathcal{I}$ and $X \cap \emptyset = \emptyset$, $\emptyset \in \mathcal{I}'$.
+Let $I \in \mathcal{I}', J \subseteq I$.
 Since $I \in \mathcal{I}$, $J \in \mathcal{I}$.
 Since $J \subseteq I$ and $I \cap X = \emptyset$, $J \cap X = \emptyset$.
 Therefore, $J \in \mathcal{I}'$.
@@ -85,7 +85,7 @@ It is easy to see that it is a subset of $\mathcal{I}$.
 Since $A$ is in the subset of $\mathcal{I}$, $A$ must be in $\mathcal{I}$.
 \end{proof}
 
-In other words, this means that deletion never "adds" a new element to a family of independent sets.
+In other words, this means that deletion never ``adds" a new element to a family of independent sets.
 
 
 \begin{thm}
@@ -192,7 +192,7 @@ Therefore, in any case, $(M / e) / f = (M / f) / e$.
 Now that we have defined contraction and deletion, we can define a \textit{minor} of a matroid.
 
 \begin{defn}
-A minor of a matroid is a matroid that can be obtained by some (possibly zero) a number of contraction and deletion.
+A minor of a matroid is a matroid that can be obtained by a sequence of contraction and deletion operations. (possibly no operation)
 \end{defn}
 
 Therefore, most matroids have more than one minor.
