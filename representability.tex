@@ -4,33 +4,107 @@ This chapter will introduce a new concept, a matroid minor, which is crucial whe
 In order to introduce a matroid minor, we first need to introduce two operations on matroids: deletion and contraction.
 
 \begin{defn}
-Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
-$M \backslash X$ denotes a deletion of $X$ in $M$ and is defined to be $(E - X, \{ I \in \mathcal{I} \mid X \cap I = \emptyset \})$
+Let $M = (E, \mathcal{I})$, $e \in E$ be given.
+$M \backslash e$ is defined to be $(E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I \})$.
 \end{defn}
 
-Note that $M \backslash e$ for some element $e \in E$ is equivalent to $M \backslash \{ e \}$.
-
 \begin{thm}
-Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
-$M \backslash X$ is indeed a matroid
+Let $M = (E, \mathcal{I})$, $e \in E$ be given.
+$M \backslash e$ is indeed a matroid.
 \end{thm}
 
 \begin{proof}
-Let $M' = (E', \mathcal{I}') = M \backslash X$.
-Since $\emptyset \in \mathcal{I}$ and $X \cap \emptyset = \emptyset$, $\emptyset \in \mathcal{I}'$.
-Let $I \in \mathcal{I}', J \subseteq I$.
-Since $I \in \mathcal{I}$, $J \in \mathcal{I}$.
-Since $J \subseteq I$ and $I \cap X = \emptyset$, $J \cap X = \emptyset$.
+Let $M' = M \backslash e = (E', \mathcal{I}')$.
+$\emptyset \in \mathcal{I}'$ since $\emptyset \in \mathcal{I}$ and $e \notin \emptyset$.
+Let $I \in \mathcal{I}'$ and $J \subseteq I$.
+Since $e \notin I$, $e \notin J$.
+Since $I \in \mathcal{I}'$, $I \in \mathcal{I}$.
+Since $J \subseteq I$, $J \in \mathcal{I}$.
 Therefore, $J \in \mathcal{I}'$.
 Let $A, B \in \mathcal{I}'$ such that $\lvert A \rvert < \lvert B \rvert$.
-Since $A, B \in \mathcal{I}'$, we know that $A, B \in \mathcal{I}$.
-Therefore, we can find $x \in B - A$ such that $(A \cup \{ x \}) \in \mathcal{I}$.
-Since $(A \cup \{ x \}) \subseteq (A \cup B)$ and $X \cap A = X \cap B = \emptyset$, $X \cap (A \cup \{ x \}) = \emptyset$.
-Therefore, $A \cup \{ x \} \in \mathcal{I}'$.
-Thus, we have found such $x \in B - A$ that $A \cup \{ x \} \in \mathcal{I}'$.
-Since $M' = M \backslash X$ follows the three properties, it is indeed a matroid. 
+Since $A, B \in \mathcal{I}'$, they are in $\mathcal{I}$.
+Let $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}$.
+Since $e \notin B$, $e \notin x$.
+Therefore, $e \notin A \cup \{ x \}$.
+It means that we have found $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}'$.
+Since $M'$ satisfies the three properties, it is indeed a matroid.
 \end{proof}
 
+The above is the definition of deletion by an element.
+It is also possible to define deletion by a subset of $E$.
+
+\begin{defn}
+Let $M = (E, \mathcal{I}), X = \{ x_1, \cdots, x_k \} \subseteq E$.
+$M \backslash X$ is defined to be $(((M \backslash x_1) \backslash x_2) \cdots) \backslash x_k)$.
+\end{defn}
+
+The following theorem shows that the order of deletion does not matter.
+
+\begin{thm}
+For any given matroid $M = (E, \mathcal{I})$,
+$(M \backslash e) \backslash f = (M \backslash f) \backslash e$ for any $e \neq f \in E$.
+\end{thm}
+
+\begin{proof}
+First, it is easy to see that $(M \backslash e) \backslash f$ and $(M \backslash f) \backslash e$ have the same ground set, which is $E \backslash \{ e, f \}$.
+Therefore, it suffices to check the family of independent sets.
+The family of independent sets of $M \backslash e$ is $\mathcal{I}' = \{ I \in \mathcal{I} \mid e \notin I \}$.
+The family of independent sets of $(M \backslash e) \backslash f$ is $\mathcal{I}'' = \{ I \in \mathcal{I}' \mid f \notin I \}$.
+Obviously, $\mathcal{I}'' \subseteq I$, and, for any $I \in \mathcal{I}$, $I \in \mathcal{I}''$ if and only if $e \notin I$ and $f \notin I$.
+Therefore, the family of independent sets of $(M \backslash e) \backslash f = \{ I \in \mathcal{I} \mid \{ e, f \} \cap I = \emptyset \}$.
+Now, it is easy to see that $(M \backslash e) \backslash f = (M \backslash f) \backslash e$.
+\end{proof}
+
+Here are a few simple yet useful results about deletion.
+
+\begin{thm}
+Let a matroid $M = (E, \mathcal{I}), X \subseteq E$ be given.
+Let $A$ be an independent set in $M \backslash X$.
+Then $A$ is independent in $M$.
+\end{thm}
+
+\begin{proof}
+A family of independent sets of $M \backslash X$ is $\{ I \in \mathcal{I} \mid (I \cap X) = \emptyset \}$.
+It is easy to see that it is a subset of $\mathcal{I}$.
+Since $A$ is in the subset of $\mathcal{I}$, $A$ must be in $\mathcal{I}$.
+\end{proof}
+
+In other words, this means that deletion never ``adds" a new element to a family of independent sets.
+
+\begin{thm}
+The deletion of a loop does not change a family of independent sets.
+\end{thm}
+
+\begin{proof}
+Let $M = (E, \mathcal{I}), e \in E, \{ e \} \notin \mathcal{I}$.
+A family of independent sets of $M \backslash e$ is $\{ I \in \mathcal{I} \mid (I \cap \{ e \}) = \emptyset \}$.
+Since $\{ e \}$ is a loop, no independent set can contain $e$.
+Therefore, a family of independent sets of $M \backslash e$ is identical to $\mathcal{I}$.
+\end{proof}
+
+% \begin{thm}
+% Let $M = (E, \mathcal{I})$, $X \subseteq E$ be given.
+% $M \backslash X$ is indeed a matroid
+% \end{thm}
+% 
+% \begin{proof}
+% Let $M' = (E', \mathcal{I}') = M \backslash X$.
+% Since $\emptyset \in \mathcal{I}$ and $X \cap \emptyset = \emptyset$, $\emptyset \in \mathcal{I}'$.
+% Let $I \in \mathcal{I}', J \subseteq I$.
+% Since $I \in \mathcal{I}$, $J \in \mathcal{I}$.
+% Since $J \subseteq I$ and $I \cap X = \emptyset$, $J \cap X = \emptyset$.
+% Therefore, $J \in \mathcal{I}'$.
+% Let $A, B \in \mathcal{I}'$ such that $\lvert A \rvert < \lvert B \rvert$.
+% Since $A, B \in \mathcal{I}'$, we know that $A, B \in \mathcal{I}$.
+% Therefore, we can find $x \in B - A$ such that $(A \cup \{ x \}) \in \mathcal{I}$.
+% Since $(A \cup \{ x \}) \subseteq (A \cup B)$ and $X \cap A = X \cap B = \emptyset$, $X \cap (A \cup \{ x \}) = \emptyset$.
+% Therefore, $A \cup \{ x \} \in \mathcal{I}'$.
+% Thus, we have found such $x \in B - A$ that $A \cup \{ x \} \in \mathcal{I}'$.
+% Since $M' = M \backslash X$ follows the three properties, it is indeed a matroid. 
+% \end{proof}
+% 
+
+Since we have defined deletion, we are going to define contraction.
 \begin{defn}
 Let $M = (E, \mathcal{I})$, $e \in E$ be given.
 $M / e$ denotes contraction of $M$ by $e$ and 
@@ -70,34 +144,6 @@ Since this follows three properties given in the definition, this is indeed a ma
 Therefore, contraction by an element indeed generates a matroid.
 \end{proof}
 
-
-Here are a few simple yet useful results about deletion.
-
-\begin{thm}
-Let a matroid $M = (E, \mathcal{I}), X \subseteq E$ be given.
-Let $A$ be an independent set in $M \backslash X$.
-Then $A$ is independent in $M$.
-\end{thm}
-
-\begin{proof}
-A family of independent sets of $M \backslash X$ is $\{ I \in \mathcal{I} \mid (I \cap X) = \emptyset \}$.
-It is easy to see that it is a subset of $\mathcal{I}$.
-Since $A$ is in the subset of $\mathcal{I}$, $A$ must be in $\mathcal{I}$.
-\end{proof}
-
-In other words, this means that deletion never ``adds" a new element to a family of independent sets.
-
-
-\begin{thm}
-The deletion of a loop does not change a family of independent sets.
-\end{thm}
-
-\begin{proof}
-Let $M = (E, \mathcal{I}), e \in E, \{ e \} \notin \mathcal{I}$.
-A family of independent sets of $M \backslash e$ is $\{ I \in \mathcal{I} \mid (I \cap \{ e \}) = \emptyset \}$.
-Since $\{ e \}$ is a loop, no independent set can contain $e$.
-Therefore, a family of independent sets of $M \backslash e$ is identical to $\mathcal{I}$.
-\end{proof}
 
 Now that we have defined contraction of a matroid by an element, we can define contraction by a subset of a ground set.
 \begin{defn}
@@ -184,6 +230,20 @@ Therefore, in any case, $(M / e) / f = (M / f) / e$.
 \end{proof}
 
 
+Here is a simple result about contraction.
+
+\begin{thm}
+Let a matroid $M = (E, \mathcal{I}), X \subseteq E$ be given.
+Let $A$ be an independent set in $M / X$.
+Then $A$ is independent in $M$.
+\end{thm}
+
+\begin{proof}
+A family of independent sets of $M / X$ is clearly a subset of $\mathcal{I}$ from the definition of contraction.
+Since $A$ is in the subset of $\mathcal{I}$, $A$ must be in $\mathcal{I}$.
+\end{proof}
+
+In other words, this means that contraction never ``adds" a new element to a family of independent sets just like deletion.
 %\item Maybe talk about dual matroid
 %  \begin{itemize}
 %    \item redefine contraction/deletion in terms of dual
@@ -220,8 +280,11 @@ We know that the order of deletion does not matter, so they are equivalent.
 \item
 $e$ is not a loop, but $f$ is a loop.
 Since the deletion of $f$ does not change a family of independent sets,
-$M$ and $(M \backslash f)$ both have the same independent sets, although their ground sets are not identical.
-Therefore, $(M / e)$ and $(M \backslash f) / e$ have the same independent sets from the definition of contraction.
+both $M$ and $(M \backslash f)$ have the same family of independent sets, although their ground sets are not identical.
+Therefore, $(M / e)$ and $(M \backslash f) / e$ have the same family of independent sets from the definition of contraction.
+Since we know that contraction does not add a new independent set, $f$ is a loop in $(M / e)$.
+Therefore, deletion of $f$ does not change the family of independent sets.
+Hence, we know that $(M / e) \backslash f$ and $(M \backslash f) / e$ have the same ground set and the same family of independent sets, so they are identical.
 \item
 Neither $e$ nor $f$ is a loop.
 Let $X \subseteq E - \{e, f\}$.
@@ -230,6 +293,7 @@ $X$ is independent in $(M / e)$ if and only if $(X \cup \{ e \})$ is independent
 On the other hand, $X$ is independent in $(M \backslash f) / e$ if and only if $X \cup \{ e \}$ is independent in $(M \backslash f)$.
 $X \cup \{ e \}$ is independent in $(M \backslash f)$ if and only if $X \cup \{ e \}$ is independent in $M$.
 Therefore, $X$ is independent in $(M / e) \backslash f$ if and only if $X$ is independent in $(M \backslash f) / e$.
+Since $(M / e) \backslash f$ and $(M \backslash f) / e$ have the same ground set and the same family of independent sets, they are identical.
 \end{enumerate}
 Therefore, in every case, $(M / e) \backslash f$ is identical to $(M \backslash f) / e$.
 \end{proof}
