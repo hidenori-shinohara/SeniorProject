@@ -381,8 +381,20 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   $\iff$ $\{ i_1, i_2, \cdots, i_k, n \}$ is independent in $M$ \\
   $\iff$ $\{ u_{i_1}, u_{i_2}, \cdots, u_{i_k}, u_{n} \}$ is linearly independent \\
   We are going to take a close look at this set of vectors.
+  Suppose $U$ is linearly independent.
+  We want to show that a set of column vectors of $B$ is linearly independent.
+  Let $c_1, c_2, \cdots, c_k \in \mathbb{F}$ be given such that $c_1 b_{i_1} + \cdots + c_k b_{i_k} = 0$.\\
+  \begin{align*}\displaystyle 
+  0 &= c_1 b_{i_1} + \cdots + c_k b_{i_k}  \\
+    &= c_1 u_{i_1} + \cdots + c_k u_{i_k} - \Big( \sum_{j = 1}^{k} c_j \frac{u_{i_j} \cdot u_n}{u_n \cdot u_n} \Big) u_n
+  \end{align*}
+  Since $U$ is linearly independent, $c_1, \cdots, c_k$ must be all 0.
+  Therefore, a set of column vectors of $B$ is linearly independent.
+  Now, suppose a set of column vectors of $B$ is linearly independent.
+  We want to show that $U$ is linearly independent.
   Let $c_1, c_2, \cdots, c_k, c \in \mathbb{F}$ be given such that $c_1 u_{i_1} + \cdots + c_k u_{i_k} + c u_n = 0$.\\
-  \begin{align*}\displaystyle c_1 b_{i_1} + \cdots + c_k b_{i_k}
+  \begin{align*}\displaystyle
+  c_1 b_{i_1} + \cdots + c_k b_{i_k}
   &= \sum_{j=1,\cdots,k} c_j b_{i_j}  \\
   &= c_1 u_{i_1} + c_2 u_{i_2} + \cdots + c_k u_{i_k} - \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n  \\
   &= -c u_n - \sum_{j=1,\cdots,k} c_j \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n \\
@@ -390,9 +402,12 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   &= -\frac{\Big(c{u_n \cdot u_n} + \sum_{j=1,\cdots,k} c_j (u_i \cdot u_n)\Big)}{u_n \cdot u_n}u_n \\
   &= -\frac{(c_1 u_1 + c_2 u_2 + \cdots + c_k u_k + c u_n) \cdot u_n}{u_n \cdot u_n}u_n \\
   &= 0.\end{align*}
-  Therefore, $\{ u_{i_1}, u_{i_2}, \cdots, u_{i_k}, u_{n} \}$ is linearly independent \\
-  $\iff$ $\{ b_{i_1}, b_{i_2}, \cdots, b_{i_k} \}$ is linearly independent \\
-  $\iff$ $\{ i_1, i_2, \cdots, i_k \}$ is independent in the column matroid of $B$. \\
+  Therefore, $c_1, c_2, \cdot, c_k$ are all 0.
+  Since $u_n$ is nonzero and $c u_n = 0$, we know that $c$ is 0 as well.
+  Therefore, we know that $U$ is linearly independent.
+  Now we have proved that $\{ u_{i_1}, u_{i_2}, \cdots, u_{i_k}, u_{n} \}$ is linearly independent 
+  if and only if $\{ b_{i_1}, b_{i_2}, \cdots, b_{i_k} \}$ is linearly independent.
+  $\{ b_{i_1}, b_{i_2}, \cdots, b_{i_k} \}$ is linearly independent if and only if $\{ i_1, i_2, \cdots, i_k \}$ is independent in the column matroid of $B$. 
   Therefore, the column matroid of $B$ is isomorphic to $M / e$.
 \end{enumerate}
 Hence, we have proved that any minor of $M$ is always representable.
