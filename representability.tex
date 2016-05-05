@@ -355,26 +355,26 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   We prove so by comparing the independent sets of each matroid.
   By definition, $M \backslash e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I \})$.
   Let $U = \{ u_{i_1}, u_{i_2}, \cdots, u_{i_k} \}$ be a subset of $\{ u_1, u_2, \cdots, u_{n-1} \}$.
-  We want to show that $U$ is linearly independent if and only if $\{ i_1, i_2, \cdots i_k \}$ is linearly independent in $M \backslash e$.
+  We want to show that $U$ is linearly independent if and only if $\{ i_1, i_2, \cdots, i_k \}$ is independent in $M \backslash e$.
   Suppose $U$ is linearly independent. 
-  Then $\{ i_1, i_2, \cdots i_k \}$ is independent in the column matroid of $A$.
-  Since $\{ i_1, i_2, \cdots i_k \}$ is in $\mathcal{I}$ and does not contain $e = n$, it is independent in $M \backslash e$ as well.
+  Then $\{ i_1, i_2, \cdots, i_k \}$ is independent in the column matroid of $A$.
+  Since $\{ i_1, i_2, \cdots, i_k \}$ is in $\mathcal{I}$ and does not contain $e = n$, it is independent in $M \backslash e$ as well.
   Suppose $U$ is linearly dependent. 
-  Then $\{ i_1, i_2, \cdots i_k \}$ is dependent in the column matroid of $A$.
-  Since $\{ i_1, i_2, \cdots i_k \}$ is not in $\mathcal{I}$ it is dependent in $M \backslash e$ as well.
+  Then $\{ i_1, i_2, \cdots, i_k \}$ is dependent in the column matroid of $A$.
+  Since $\{ i_1, i_2, \cdots, i_k \}$ is not in $\mathcal{I}$ it is dependent in $M \backslash e$ as well.
   Therefore, $M \backslash e$ is representable over $\mathbb{F}$.
 \item
   Next, we prove the case of contraction.
   First, assume $e$ is a loop.
-  Then the corresponding column of $A$ must be a zero vector.
-  It is easy to see that the removal of the corresponding column will yield a matrix whose column vector is isomorphic to $M / e = M \backslash e$.
+  In this case, $M / e = M \backslash e$ by definition.
+  We proved above that $M \backslash e$ is representable over $\mathbb{F}$.
   Now, assume that $e$ is not a loop.
   Then the corresponding column of $A$ must not be a zero vector.
-  We prove the proposition by comparing the independent sets of each matroid.
-  By definition, $M / e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (e \cup I) \in \mathcal{I}\})$.
-  We claim that $M / e$ is isomorphic to the column matroid of $B \in \mathbb{F}^{r \times n-1}$, 
+  We claim that $M / e$ is isomorphic to the column matroid of $B \in \mathbb{F}^{r \times (n-1)}$, 
   where $i$th column of $B$, $b_i$, is $\displaystyle u_i - \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n$.
   (This makes sense since we are assuming that $u_n$ is not a zero vector.)
+  We prove the proposition by comparing the independent sets of each matroid.
+  By definition, $M / e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (e \cup I) \in \mathcal{I}\})$.
   Let $X = \{ i_1, i_2, \cdots, i_k \} \subseteq E - \{ n \}$ be given. \\
   $X$ is independent in $M / e$ \\
   $\iff$ $X \cup \{ n \}$ is independent in $M$ \\
