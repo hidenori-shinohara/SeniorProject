@@ -24,7 +24,7 @@ Therefore, $J \in \mathcal{I}'$.
 Let $A, B \in \mathcal{I}'$ such that $\lvert A \rvert < \lvert B \rvert$.
 Since $A, B \in \mathcal{I}'$, they are in $\mathcal{I}$.
 Let $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}$.
-Since $e \notin B$, $e \notin x$.
+Since $e \notin B$, $e \neq x$.
 Therefore, $e \notin A \cup \{ x \}$.
 It means that we have found $x \in B - A$ such that $A \cup \{ x \} \in \mathcal{I}'$.
 Since $M'$ satisfies the three properties, it is indeed a matroid.
@@ -346,8 +346,10 @@ Any minor of $M$ is representable over $\mathbb{F}$.
 It suffices to show that $M / e$ and $M \backslash e$ are both representable over $\mathbb{F}$ for any $e \in E$.
 Let $r$ be a rank of $M$, $n = \lvert E \rvert$.
 Let $e \in E$ be given.
-Let $A = \begin{pmatrix}u_1 u_2 \cdots u_n\end{pmatrix} \in \mathbb{F}^{r \times n}$ be a matrix such that the column matroid of $M$ is isomorphic to $A$.
 Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n$.
+Let $A = \begin{pmatrix}u_1 u_2 \cdots u_n\end{pmatrix} \in \mathbb{F}^{r \times n}$ be a matrix such that the column matroid of $M$ is identical to $A$.
+(We can find such a matrix since we can find a matrix whose column matroid is isomorphic and we can simply permute the column vectors in it)
+
 \begin{enumerate}
 \item 
   First, we prove the case of deletion.
@@ -361,7 +363,7 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   Since $\{ i_1, i_2, \cdots, i_k \}$ is in $\mathcal{I}$ and does not contain $e = n$, it is independent in $M \backslash e$ as well.
   Suppose $U$ is linearly dependent. 
   Then $\{ i_1, i_2, \cdots, i_k \}$ is dependent in the column matroid of $A$.
-  Since $\{ i_1, i_2, \cdots, i_k \}$ is not in $\mathcal{I}$ it is dependent in $M \backslash e$ as well.
+  Since $\{ i_1, i_2, \cdots, i_k \}$ is not in $\mathcal{I}$, it is dependent in $M \backslash e$ as well.
   Therefore, $M \backslash e$ is representable over $\mathbb{F}$.
 \item
   Next, we prove the case of contraction.
@@ -370,7 +372,7 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   We proved above that $M \backslash e$ is representable over $\mathbb{F}$.
   Now, assume that $e$ is not a loop.
   Then the corresponding column of $A$ must not be a zero vector.
-  We claim that $M / e$ is isomorphic to the column matroid of $B \in \mathbb{F}^{r \times (n-1)}$, 
+  We claim that $M / e$ is identical to the column matroid of $B \in \mathbb{F}^{r \times (n-1)}$, 
   where $i$th column of $B$, $b_i$, is $\displaystyle u_i - \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n$.
   (This makes sense since we are assuming that $u_n$ is not a zero vector.)
   We prove the proposition by comparing the independent sets of each matroid.
@@ -382,15 +384,15 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   $\iff$ $U = \{ u_{i_1}, u_{i_2}, \cdots, u_{i_k}, u_{n} \}$ is linearly independent \\
   We are going to take a close look at this set of vectors.
   Suppose $U$ is linearly independent.
-  We want to show that a set of column vectors of $B$ is linearly independent.
+  We want to show that a set of corresponding column vectors of $B$ is linearly independent.
   Let $c_1, c_2, \cdots, c_k \in \mathbb{F}$ be given such that $c_1 b_{i_1} + \cdots + c_k b_{i_k} = 0$.\\
   \begin{align*}\displaystyle 
   0 &= c_1 b_{i_1} + \cdots + c_k b_{i_k}  \\
     &= c_1 u_{i_1} + \cdots + c_k u_{i_k} - \Big( \sum_{j = 1}^{k} c_j \frac{u_{i_j} \cdot u_n}{u_n \cdot u_n} \Big) u_n
   \end{align*}
   Since $U$ is linearly independent, $c_1, \cdots, c_k$ must be all 0.
-  Therefore, a set of column vectors of $B$ is linearly independent.
-  Now, suppose a set of column vectors of $B$ is linearly independent.
+  Therefore, a set of corresponding column vectors of $B$ is linearly independent.
+  Now, suppose a set of corresponding column vectors of $B$ is linearly independent.
   We want to show that $U$ is linearly independent.
   Let $c_1, c_2, \cdots, c_k, c \in \mathbb{F}$ be given such that $c_1 u_{i_1} + \cdots + c_k u_{i_k} + c u_n = 0$.\\
   \begin{align*}\displaystyle
@@ -409,7 +411,7 @@ Without loss of generality, we can assume $E = \{ 1, 2, \cdots, n \}$ and $e = n
   if and only if $\{ b_{i_1}, b_{i_2}, \cdots, b_{i_k} \}$ is linearly independent.
   $\{ b_{i_1}, b_{i_2}, \cdots, b_{i_k} \}$ is linearly independent if and only if $\{ i_1, i_2, \cdots, i_k \}$ is independent in the column matroid of $B$. 
   In conclusion, a subset of $E - \{ e \}$, $X = \{ i_1, i_2, \cdots, i_k \}$, is independent in $M / e$ if and only if $X$ is independent in the column matroid of $B$.
-  Therefore, the column matroid of $B$ is isomorphic to $M / e$ since they have the same family of independent sets.
+  Therefore, the column matroid of $B$ is identical to $M / e$ since they have the same family of independent sets.
 \end{enumerate}
 Hence, we have proved that any minor of $M$ is always representable.
 \end{proof}

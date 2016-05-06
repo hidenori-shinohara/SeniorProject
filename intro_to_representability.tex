@@ -21,11 +21,13 @@ A matroid $M = (E, \mathcal{I})$ is representable over a field $\mathbb{F}$ if
 there exists a matrix $A$ over $\mathbb{F}$ such that the column matroid of $A$ is isomorphic to $M$.
 \end{defn}
 
-Therefore, if the matroid indeed succeeded in abstracting the concept of linear independence, 
-there should be some matroids that are \textit{not} representable over some fields.
-If all matroids are representable over every field, it means that we are simply discussing linear algebra using different terms.
+The representability is an important and interesting part of the matroid theory.
+For example, if there exists a field $\mathbb{F}$ such that all matroids are representable over $\mathbb{F}$,
+the matroid theory did not quite succeed in abstracting the concept of linearly independence
+as those properties could have been found by studying a set of vectors over $\mathbb{F}$.
+Fortunately, a lot of unrepresentable matroids have been found including V\'{a}mos matroid which is not representable over any field. \cite{matroidtheory}
 
-Before introducing some unrepresentable matroids, we will start by introducing a nice property of representable matroids.
+Before introducing some more unrepresentable matroids, we will start by introducing a nice property of representable matroids.
 
 \begin{thm}
 Let $M = (E, \mathcal{I})$ be a matroid that is representable over $\mathbb{F}$.
@@ -38,15 +40,14 @@ Let $B$ a matrix over $\mathbb{F}$ such that the column matroid of $B$ is isomor
 It is easy to see that the number of columns of $B$ is $k$.
 From linear algebra, we know that elementary row operations preserve the linear independence of column vectors.
 Let $R$ be the reduced row echelon form of $B$.
-Since $R$ must have a rank of $r$, it only has $r$ leading zeros.
-In other words, $R$ has exactly $r$ non-zero row vectors.
+Since $R$ must have a rank of $r$, $R$ has exactly $r$ non-zero row vectors.
 Removing zero rows clearly does not affect the linear independence.
 Therefore, we found a matrix in $\mathbb{F}^{r \times k}$ whose column matroid is isomorphic to $M$.
 \end{proof}
 
 This property is useful when proving that a matroid is unrepresentable over some field.
 
-Here are some matroids that are not representable over some fields to show that not all matroids are representable over every field.
+Here are some matroids that are not representable over some fields.
 
 \begin{thm}
 $U_{2, 4}$ is not representable over $GF(2)$.
@@ -63,7 +64,7 @@ $\bigg\{\begin{pmatrix}0\\0\end{pmatrix},
 \begin{pmatrix}1\\0\end{pmatrix},
 \begin{pmatrix}1\\1\end{pmatrix}\bigg\}$
 $A$ must not contain $\begin{pmatrix}0\\0\end{pmatrix}$ since it is a loop. 
-Since $A$ has 4 columns and there are only 3 different column vectors, we know that there are two columns in $A$ that have the exact same column vectors.
+Since $A$ has 4 columns and there are only 3 different column vectors, we know that there are two columns in $A$ that have the exact same column vector.
 This is a contradiction since a subset of such two elements will not be independent.
 Therefore, $U_{2, 4}$ is not representable over $GF(2)$.
 \end{proof}
@@ -107,11 +108,11 @@ The Fano matroid is indeed a matroid.
 \end{thm}
 
 \begin{proof}
-An empty set is independent since it contains less than 2 elements.
+An empty set is independent since it contains less than 3 elements.
 Any independent set has at most three elements, so any proper subset of it has at most two elements.
 Therefore, any subset of independent sets is always independent.
 The third property can be proved by checking each case.
-Since any set with 2 or fewer elements is independent, we only need to care about the case when we have a set with 2 elements and a set of three elements.
+Since any set with 2 or fewer elements is independent, we only need to care about the case when we have a set with 2 elements and a set of 3 elements.
 Let $A = \{ a_1, a_2, a_3 \}$, $B = \{ b_1, b_2\}$ be independent sets.
 It is easy to see from the figure that there must be exactly one line that goes through both $b_1$ and $b_2$.
 Let $x$ denote the third point on such line.
@@ -131,7 +132,7 @@ If the Fano matroid is representable over a field $\mathbb{F}$, $1 + 1 = 0$ in t
 \begin{proof}
 Suppose the Fano matroid is representable over a given field $\mathbb{F}$.
 Let $A \in \mathbb{F}^{3 \times 7}$ such that $A$'s column matroid is isomorphic to the Fano matroid.
-Let $R$ be a row reduced echelon form of $A$.
+Let $R$ be a reduced row-echelon form of $A$.
 Then the first three columns should be identical to $I_3$ since $R$ has a rank of 3.
 Since $\{1, 2, 4\}$ is dependent, $R_{3, 4}$ is 0.
 Applying the same argument to $\{2, 3, 5\}, \{1, 3, 6\}$, we get the following:\\
@@ -142,7 +143,7 @@ $\begin{pmatrix}
 \end{pmatrix}$\\
 All of $4, 5, 6, 7$th columns have to contain at least two nonzero elements.
 If it is a zero vector, it will be a loop, and if it only has exactly one nonzero element, it will be parallel to one of the first three columns.
-Since multiplying a nonzero constant to some column does not affect the linearly independency, assume that the first non-zero elements of 4, 5, 6th columns, are all 1.
+Since multiplying a nonzero constant to some column does not affect the linearly independency, assume that the first non-zero elements of 4, 5, 6th columns are all 1.
 Therefore, we get the following matrix.\\
 $\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 1 & ? \\

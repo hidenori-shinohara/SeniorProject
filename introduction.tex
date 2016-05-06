@@ -1,4 +1,4 @@
-\section{Introduction to Matroid}
+\section{Introduction to a Matroid}
 
 A matroid is a mathematical structure that abstracts the concept of linear independence.
 A linearly independent set of vectors has a lot of good properties.
@@ -61,7 +61,7 @@ It is easy to see that a uniform matroid is indeed a matroid.
 
 % If I need more pages, just introduce a graph matroid
 
-Here are some important results that will show up later in this paper.
+Here is an important result regarding independent sets.
 
 \begin{thm}
 All maximal independent sets have the same size.
@@ -77,7 +77,8 @@ Therefore $\lvert X \rvert = \lvert Y \rvert$.
 \end{proof}
 
 This is indeed true in linear algebra.
-Given a matrix, any maximal independent subset of column vectors always has the same size. In linear algebra, this number is often referred to as the \textit{dimension} of a vector space or the \textit{rank} of a matrix.
+Given a matrix, any maximal independent subset of column vectors always has the same size. 
+In linear algebra, this number is often referred to as the \textit{dimension} of a vector space or the \textit{rank} of a matrix.
 In the matroid theory, we use the term \textit{rank} as well.
 
 
@@ -85,7 +86,7 @@ In the matroid theory, we use the term \textit{rank} as well.
 The rank of a matroid is the size of a maximal independent set.
 \end{defn}
 
-The rank of a column matroid is equal to the rank of the matrix since the subset of a ground set is independent if and only if the subset of column vectors is linearly independent.
+The rank of a column matroid is equal to the rank of the matrix since the subset of a ground set is independent if and only if the corresponding subset of column vectors is linearly independent.
 
 \begin{defn}
 Let $M = (E, \mathcal{I})$ be given.
