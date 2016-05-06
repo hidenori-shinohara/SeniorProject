@@ -165,12 +165,13 @@ There are a few cases.
 \begin{enumerate}
 
 \item $e, f$ are both loops. \\
-$(M / e) / f = (M \backslash e) / f$
+$(M / e) / f = (M \backslash e) / f$.
 Since deletion of a loop does not change a family of independent sets, $f$ is a loop in $(M \backslash e)$.
 Therefore, $(M / e) / f = (M \backslash e) \backslash f$.
-Again, deletion of $f$ does not change a family of independent sets since $f$ is a loop in $(M / e)$.
-Therefore, we have $(M / e) / f = (E - \{ e, f \}, \mathcal{I})$.
-By symmetry, $(M / e) / f = (M / f) / e$.
+Similarly $(M / f) / e = (M \backslash f) / e$.
+Since deletion of a loop does not change a family of independent sets, $e$ is a loop in $(M \backslash f)$.
+Therefore, $(M / f) / e = (M \backslash f) \backslash e$.
+Since the order of deletion does not matter, they are identical.
 
 \item 
 One of $e, f$ is a loop, and the other one is not. \\
