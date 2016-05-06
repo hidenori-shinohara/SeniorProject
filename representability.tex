@@ -1,5 +1,14 @@
 \section{More discussion on matroid representability}
-This chapter will introduce a new concept, a matroid minor, which is crucial when discussing the matroid representability.
+In the previous chapter, we have introduced some matroids that are not representable over some field.
+For example, we have proved that $U_{2, 4}$ is not representable over $GF(2)$.
+Now, consider a matroid $M$ that is identical to $U_{2, 4}$ except that it has one extra element that is a loop.
+It is not so hard to see that $M$ is not representable over $GF(2)$.
+(We will mathematically prove this later.)
+We can add two loops to $U_{2, 4}$ to get a matroid that is not representable over $GF(2)$.
+Actually, we can add any number of loops to $U_{2, 4}$ and get a matroid that is not representable over $GF(2)$.
+However, this is not a meaningful discovery since the structure that makes them unrepresentable over $GF(2)$ is $U_{2, 4}$.
+In this sense, $U_{2, 4}$ is a structure that a representable matroid cannot ``contain".
+In order to discuss this more mathematically, this chapter will introduce a new concept, a matroid minor.
 
 In order to introduce a matroid minor, we first need to introduce two operations on matroids: deletion and contraction.
 
@@ -377,7 +386,7 @@ Let $A = \begin{pmatrix}u_1 u_2 \cdots u_n\end{pmatrix} \in \mathbb{F}^{r \times
   where $i$th column of $B$, $b_i$, is $\displaystyle u_i - \frac{u_i \cdot u_n}{u_n \cdot u_n} u_n$.
   (This makes sense since we are assuming that $u_n$ is not a zero vector.)
   We prove the proposition by comparing the independent sets of each matroid.
-  By definition, $M / e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (e \cup I) \in \mathcal{I}\})$.
+  By definition, $M / e = (E - \{ e \}, \{ I \in \mathcal{I} \mid e \notin I, (\{ e \} \cup I) \in \mathcal{I}\})$.
   Let $X = \{ i_1, i_2, \cdots, i_k \} \subseteq E - \{ n \}$ be given. \\
   $X$ is independent in $M / e$ \\
   $\iff$ $X \cup \{ n \}$ is independent in $M$ \\
