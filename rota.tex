@@ -54,6 +54,7 @@ First, we will assume the following lemmas. Proofs of them can be found in \cite
 \begin{lem}
 Let $B$ be a basis of a matroid $M = (S, \mathcal{I})$, and $e \notin B$.
 Then $B \cup \{ e \}$ contains a unique circuit.
+A circuit is a minimal dependent subset.
 \end{lem}
 
 \begin{lem}
@@ -72,35 +73,44 @@ In other words, a matroid $M$ is representable over $GF(2)$ if and only if $U_{2
 \end{thm}
 
 \begin{proof}
-By theorem 2.4, we know that $U_{2, 4}$ is not representable over $GF(2)$.
-Since any proper minor of $U_{2, 4}$ contains at most 3 elements, by theorem 2.9, we know that any proper minor of $U_{2, 4}$ is representable over $GF(2)$.
+We proved earlier that $U_{2, 4}$ is not representable over $GF(2)$.
+Since any proper minor of $U_{2, 4}$ contains at most 3 elements, we know that any proper minor of $U_{2, 4}$ is representable over $GF(2)$.
 Therefore, it suffices to prove that any matroid $M$ that is not representable over $GF(2)$ has a $U_{2, 4}$ minor.
-Let $M$ be such a matroid on a ground set $S$.
-We will find a representable matroid $N$ and prove that one of $N$ and $M$ has to have a $U_{2, 4}$ minor.
+Let $M$ be a matroid on a ground set $S$ that is not representable over $GF(2)$.
+We want to show that $M$ has a $U_{2, 4}$ minor.
+In order to do so, we will find a representable matroid $N$ and prove that one of $N$ and $M$ has to have a $U_{2, 4}$ minor.
 First, without loss of generality, assume that $S = \{1, 2, 3, \cdots, n\}$ for some positive integer $n$.
 Let $B$ be a basis of $M$.
 Without loss of generality, $B = \{1, 2, 3, \cdots, k\}$.
 Let $v_i$ be a column vector for each $i = 1, 2, \cdots, k$ with $k$ elements such that $i$th element is 1 and other elements are 0.
-For each $j = k + 1, k + 2, \cdots n$, let $C$ be the unique circuit in $B \cup \{ j \}$. 
+For each $j = k + 1, k + 2, \cdots, n$, let $C_j$ be the unique circuit in $B \cup \{ j \}$. 
 (The existence is guaranteed by the lemma above).
-Let $\displaystyle v_j = \sum_{i \in C - s } v_i$.
+Let $\displaystyle v_j = \sum_{i \in C - j } v_i$.
 Now, we have defined $v_i$ for $i = 1, \cdots, n$.
 Let $N$ be a column matroid of $\begin{pmatrix} v_1 v_2 \cdots v_n \end{pmatrix}$.
 Obviously $B$ is a basis of $N$ from the way we defined $N$.
 Now, we want to prove this property: For each $b \in B, s \in S \setminus B, B - b + s$ is a basis of $M$ if and only if it is a base of $N$.
-First, from the lemma above, we know that $B \cup \{ s \}$ has a unique circuit in $N$.
-The same goes for $M$.
-Moreover, they must be the same circuit from the way we defined $v_i$'s.
+Suppose $B - b + s$ is dependent in $M$.
+Since $B - b + s$ is a dependent subset of $B + s$, $B - b + s$ must contain a unique circuit of $B + s$.
+It means that $B - b$ contain indexes for vectors that can make $v_s$ dependent.
+Therefore, $B - b + s$ is dependent in $N$.
 
-If $B - b + s$ is dependent in $M$, it contains a circuit $C$ of $M$.
-Since $C$ must be included in $B + s$, we know that $C$ is the unique circuit of $B + s$ in $M$.
-Since $C$ is also a circuit in $N$, $B - b + s$ is dependent in $N$.
-
-On the other hand, suppose that $B - b + s$ is dependent in $N$.
-Let $C$ be a circuit of $N$ in $B - b + s$.
-Since $C$ must be in $B + s$, we know that $C$ is the unique circuit of $B + s$ in $N$.
-Since $C$ is also a circuit in $M$, $B - b + s$ is dependent in $M$.
-
+Suppose $B - b + s$ is dependent in $N$.
+It means that $B - b + s$ contains $C_s$ because $B$ is independent and because of the way $v_s$ is defined.
+Therefore, $B - b + s$ is dependent in $M$.
+% First, from the lemma above, we know that $B \cup \{ s \}$ has a unique circuit in $N$.
+% The same goes for $M$.
+% Moreover, they must be the same circuit from the way we defined $v_i$'s.
+% 
+% If $B - b + s$ is dependent in $M$, it contains a circuit $C$ of $M$.
+% Since $C$ must be included in $B + s$, we know that $C$ is the unique circuit of $B + s$ in $M$.
+% Since $C$ is also a circuit in $N$, $B - b + s$ is dependent in $N$.
+% 
+% On the other hand, suppose that $B - b + s$ is dependent in $N$.
+% Let $C$ be a circuit of $N$ in $B - b + s$.
+% Since $C$ must be in $B + s$, we know that $C$ is the unique circuit of $B + s$ in $N$.
+% Since $C$ is also a circuit in $M$, $B - b + s$ is dependent in $M$.
+% 
 Since $B - b + s$ is independent in $N$ if and only if it is independent in $M$, we have proved the property.
 
 Now, let $X$ such that $\lvert B \Delta X \rvert = 2$.
@@ -109,7 +119,7 @@ Therefore, $X$ is a basis of $M$ if and only if it is a basis of $N$.
 In other words, $X$ is a basis of both $M$ and $N$ or neither of them.
 Therefore, there is no $X$ such that $\lvert B \Delta X \rvert = 2$ and $X$ is a basis of exactly one of $M$ and $N$.
 By lemma, we know that $M$ or $N$ has a $U_{2, 4}$ minor.
-Clearly, it must be $M$ that has $U_{2, 4}$ minor.
+Clearly, it must be $M$ that has a $U_{2, 4}$ minor.
 \end{proof}
 
 However, finding a finite set of excluded minors for some finite case does not solve Rota's conjecture as it is more general.
@@ -126,7 +136,7 @@ Note that the minor of a graph can be obtained by deleting edges and vertices an
 
 \begin{thm}[Graph Minor Theorem]
 Let $F$ be a minor-closed family of graphs, that is, $\forall G \in F$, any minor of $G$ is in $F$.
-Then there are only finitely many graphs $H$ such that $H \notin F$ and any minor of $H$ is in $F$.
+Then there are only finitely many graphs $H$ such that $H \notin F$ and any proper minor of $H$ is in $F$.
 In other words, each minor-closed class of graphs has only finitely many excluded minors.
 \end{thm}
 
@@ -162,13 +172,12 @@ A $k$-separation in a matroid $M = (E, \mathcal{I})$ is a partition $(X, Y)$ of 
 \begin{defn}
 A matroid is $k$-connected if it has no $l$-separation for any $l < k$.
 \end{defn}
-% 
-% \begin{lem}
-% For each field $\mathbb{F}$, each excluded minor for the class of $\mathbb{F}$-representable matroids is 3-connected.
-% \end{lem}
-% 
-% This lemma is from \cite{solving}.
-% 
+
+\begin{lem}
+For each field $\mathbb{F}$, each excluded minor for the class of $\mathbb{F}$-representable matroids is 3-connected.
+\end{lem}
+
+This lemma is from \cite{solving}.
 
 There are a few basic results about connectivity.
 
@@ -187,7 +196,7 @@ Therefore, $r_M(X) + r_M(Y) - r_M(E) \geq 0$
 \begin{thm}
 $U_{2, 4}$ is indeed 3-connected.
 \end{thm}
-$U_{2, 4}$ is an excluded minor for $GF(2)$ as mentioned above, so this theorem should be true.
+$U_{2, 4}$ is an excluded minor for $GF(2)$ as mentioned earlier, so this theorem should be true.
 \begin{proof}
 Let a partition of $E$, $(X, Y)$, be given.
 Without loss of generality, $\lvert X \rvert \leq \lvert Y \rvert$.
@@ -200,7 +209,7 @@ Since $r_M(X) + r_M(Y) - r_M(E) < 2$ only if $r_M(X) = 1$, a 2-partition does no
 Therefore, $U_{2, 4}$ is indeed 3-connected.
 \end{proof}
 
-The connectivity is important because it turns out that excluded minors are very highly connected, and that is one of the important parts of the rest of the proof, and the outline can be found in \cite{solving}.
+The connectivity is important because it turns out that excluded minors are very highly connected in some sense, and that is one of the important parts of the rest of the proof, and the outline can be found in \cite{solving}.
 
 % A weak version of this lemma can be proved as following:
 % 
